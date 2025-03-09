@@ -11,6 +11,19 @@ import FooterSection from '@/components/sections/FooterSection';
 const Index = () => {
   useEffect(() => {
     document.title = 'Reed Innovate - Product Marketing Consulting';
+    
+    // Mobile viewport height fix
+    const setMobileHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setMobileHeight();
+    window.addEventListener('resize', setMobileHeight);
+    
+    return () => {
+      window.removeEventListener('resize', setMobileHeight);
+    };
   }, []);
 
   return (
