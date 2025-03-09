@@ -2,7 +2,6 @@
 import AnimatedSection from '@/components/AnimatedSection';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Rocket } from 'lucide-react';
 
 type Stage = 'discover' | 'strategize' | 'define' | 'launch' | 'grow';
 
@@ -87,15 +86,21 @@ const YouSection = () => {
                       className="h-full bg-primary transition-all duration-200"
                       style={{ width: `${progress}%` }}
                     />
-                    {/* Rocket icon that moves with the progress - made bigger */}
+                    {/* Custom rocket image that moves with the progress */}
                     <div 
-                      className="absolute top-1/2 -translate-y-1/2 transition-all duration-200 text-primary"
+                      className="absolute top-1/2 transition-all duration-200"
                       style={{ 
                         left: `${progress}%`, 
-                        transform: `translateX(-50%) translateY(-50%)` 
+                        transform: `translateX(-50%) translateY(-50%)`,
+                        height: '36px',
+                        width: '30px'
                       }}
                     >
-                      <Rocket size={24} className="rotate-90" />
+                      <img 
+                        src="/lovable-uploads/ac00de8e-a6b4-4788-aad3-5c221ef66148.png" 
+                        alt="Rocket" 
+                        className="h-full w-full object-contain rotate-90"
+                      />
                     </div>
                   </div>
                 </div>
