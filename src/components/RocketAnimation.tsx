@@ -38,6 +38,7 @@ const RocketAnimation = () => {
   
   useEffect(() => {
     const stageIndex = stages.findIndex(s => s.title === currentStage);
+    // Speed up by 25% - changing interval from 100ms to 75ms
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -48,7 +49,7 @@ const RocketAnimation = () => {
         }
         return prev + 1;
       });
-    }, 100);
+    }, 75); // Reduced from 100ms to 75ms (25% faster)
 
     return () => clearInterval(interval);
   }, [currentStage]);
@@ -93,7 +94,25 @@ const RocketAnimation = () => {
       </div>
       
       {/* Animation side - 50% width */}
-      <div className="w-full md:w-1/2 bg-gradient-to-b from-blue-500 to-blue-700 relative overflow-hidden flex items-center justify-center">
+      <div className="w-full md:w-1/2 bg-gradient-to-b from-blue-600 to-blue-900 relative overflow-hidden flex items-center justify-center">
+        {/* Stars background */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <div 
+              key={i}
+              className="absolute bg-white rounded-full"
+              style={{
+                width: `${Math.random() * 2 + 1}px`,
+                height: `${Math.random() * 2 + 1}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.7 + 0.3,
+                animation: `twinkle ${Math.random() * 4 + 2}s infinite alternate`
+              }}
+            ></div>
+          ))}
+        </div>
+
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
           {/* Cloud/Smoke base */}
           <div 
@@ -103,7 +122,7 @@ const RocketAnimation = () => {
             )}
           ></div>
           
-          {/* Space Shuttle Components - Only visible after discover stage */}
+          {/* Space Shuttle Components */}
           <div 
             className={cn(
               "transition-all duration-700",
@@ -115,37 +134,92 @@ const RocketAnimation = () => {
             }}
           >
             {/* Main shuttle body */}
-            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-24 h-48 bg-white rounded-t-full shadow-lg">
-              {/* Shuttle windows */}
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-10 h-4 bg-gray-800 rounded-full"></div>
-              {/* Shuttle nose cone */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-14 h-10 bg-gray-700 rounded-t-full"></div>
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-24 h-48 rounded-t-full shadow-lg">
+              {/* Detailed shuttle body with gradient */}
+              <div className="w-full h-full rounded-t-full bg-gradient-to-r from-gray-300 via-white to-gray-300 relative overflow-hidden">
+                {/* Heat shield tiles pattern */}
+                <div className="absolute inset-0 grid grid-cols-8 grid-rows-16 gap-[1px]">
+                  {Array.from({ length: 128 }).map((_, i) => (
+                    <div 
+                      key={i} 
+                      className={cn(
+                        "bg-gray-200 opacity-50",
+                        i % 2 === 0 ? "bg-gray-300" : "bg-gray-200"
+                      )}
+                    ></div>
+                  ))}
+                </div>
+                
+                {/* Cockpit/Nose cone with window details */}
+                <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-16 h-10 bg-gradient-to-b from-gray-800 to-gray-600 rounded-t-full">
+                  {/* Windows */}
+                  <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-10 h-3 bg-gradient-to-r from-sky-400 via-sky-300 to-sky-400 rounded-full"></div>
+                </div>
+                
+                {/* NASA logo */}
+                <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600">
+                  <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center">
+                    <div className="text-[8px] font-bold text-blue-600">NASA</div>
+                  </div>
+                </div>
+                
+                {/* Control surfaces */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-22 h-8 flex justify-between items-center px-1">
+                  <div className="w-4 h-3 bg-gray-700 rounded-sm"></div>
+                  <div className="w-4 h-3 bg-gray-700 rounded-sm"></div>
+                </div>
+              </div>
               
-              {/* Wings - appear during strategize */}
+              {/* Shuttle wings - enhanced with more details */}
               <div 
                 className={cn(
-                  "absolute top-1/2 left-0 w-16 h-8 bg-gray-200 -translate-x-[60%] skew-y-[20deg] transition-opacity duration-500",
+                  "absolute top-1/2 left-0 w-18 h-10 -translate-x-[60%] skew-y-[20deg] transition-opacity duration-500",
                   currentStage === 'discover' ? "opacity-0" : "opacity-100"
                 )}
-              ></div>
+              >
+                <div className="w-full h-full bg-gradient-to-r from-gray-300 to-white rounded-l-md"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gray-400 rounded-l-md"></div>
+                <div className="absolute bottom-1 right-0 w-3/4 h-2 bg-gray-600 rounded-bl-sm"></div>
+              </div>
+              
               <div 
                 className={cn(
-                  "absolute top-1/2 right-0 w-16 h-8 bg-gray-200 translate-x-[60%] skew-y-[-20deg] transition-opacity duration-500",
+                  "absolute top-1/2 right-0 w-18 h-10 translate-x-[60%] skew-y-[-20deg] transition-opacity duration-500",
                   currentStage === 'discover' ? "opacity-0" : "opacity-100"
                 )}
-              ></div>
+              >
+                <div className="w-full h-full bg-gradient-to-l from-gray-300 to-white rounded-r-md"></div>
+                <div className="absolute top-0 right-0 w-full h-1 bg-gray-400 rounded-r-md"></div>
+                <div className="absolute bottom-1 left-0 w-3/4 h-2 bg-gray-600 rounded-br-sm"></div>
+              </div>
             </div>
             
-            {/* External fuel tank - appears during strategize */}
+            {/* External fuel tank - appears during strategize - with more detail */}
             <div 
               className={cn(
-                "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-12 h-44 bg-orange-500 rounded-t-full rounded-b-lg transition-opacity duration-500",
+                "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-12 h-44 rounded-t-full rounded-b-lg transition-opacity duration-500",
                 currentStage === 'discover' ? "opacity-0" : "opacity-100"
               )}
               style={{ zIndex: -1 }}
-            ></div>
+            >
+              {/* Fuel tank with gradient and details */}
+              <div className="w-full h-full bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 rounded-t-full rounded-b-lg relative">
+                {/* Fuel tank stripes/details */}
+                <div className="absolute top-4 left-0 w-full h-1 bg-orange-700"></div>
+                <div className="absolute top-1/4 left-0 w-full h-1 bg-orange-700"></div>
+                <div className="absolute top-2/4 left-0 w-full h-1 bg-orange-700"></div>
+                <div className="absolute top-3/4 left-0 w-full h-1 bg-orange-700"></div>
+                
+                {/* Fuel connections */}
+                <div className="absolute top-10 left-0 w-2 h-4 bg-gray-700 rounded-l-md"></div>
+                <div className="absolute top-10 right-0 w-2 h-4 bg-gray-700 rounded-r-md"></div>
+                
+                {/* Bottom engine connection */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-3 bg-gray-800 rounded-b-md"></div>
+              </div>
+            </div>
             
-            {/* Solid rocket boosters - appear during define */}
+            {/* Solid rocket boosters - appear during define - with more detail */}
             <div 
               className={cn(
                 "absolute bottom-16 left-1/2 flex justify-between transition-opacity duration-500",
@@ -153,51 +227,101 @@ const RocketAnimation = () => {
               )}
               style={{ width: '70px', transform: 'translateX(-50%)', zIndex: -2 }}
             >
-              <div className="w-8 h-40 bg-white rounded-t-lg rounded-b-lg"></div>
-              <div className="w-8 h-40 bg-white rounded-t-lg rounded-b-lg"></div>
+              {/* Left booster with details */}
+              <div className="w-8 h-40 rounded-t-lg rounded-b-lg relative overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-b from-gray-200 via-white to-gray-200 rounded-t-lg rounded-b-lg"></div>
+                {/* Booster segment rings */}
+                <div className="absolute top-5 w-full h-1 bg-gray-300"></div>
+                <div className="absolute top-15 w-full h-1 bg-gray-300"></div>
+                <div className="absolute top-25 w-full h-1 bg-gray-300"></div>
+                <div className="absolute top-35 w-full h-1 bg-gray-300"></div>
+                {/* Attachment struts */}
+                <div className="absolute top-10 right-0 w-3 h-2 bg-gray-700"></div>
+                <div className="absolute top-20 right-0 w-3 h-2 bg-gray-700"></div>
+                <div className="absolute top-30 right-0 w-3 h-2 bg-gray-700"></div>
+                {/* Nozzle */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-3 bg-gray-800 rounded-b-md"></div>
+              </div>
+              
+              {/* Right booster with details */}
+              <div className="w-8 h-40 rounded-t-lg rounded-b-lg relative overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-b from-gray-200 via-white to-gray-200 rounded-t-lg rounded-b-lg"></div>
+                {/* Booster segment rings */}
+                <div className="absolute top-5 w-full h-1 bg-gray-300"></div>
+                <div className="absolute top-15 w-full h-1 bg-gray-300"></div>
+                <div className="absolute top-25 w-full h-1 bg-gray-300"></div>
+                <div className="absolute top-35 w-full h-1 bg-gray-300"></div>
+                {/* Attachment struts */}
+                <div className="absolute top-10 left-0 w-3 h-2 bg-gray-700"></div>
+                <div className="absolute top-20 left-0 w-3 h-2 bg-gray-700"></div>
+                <div className="absolute top-30 left-0 w-3 h-2 bg-gray-700"></div>
+                {/* Nozzle */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-3 bg-gray-800 rounded-b-md"></div>
+              </div>
             </div>
           </div>
           
-          {/* Rocket flames - appear during launch */}
+          {/* Enhanced rocket flames - appear during launch */}
           <div 
             className={cn(
               "absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-opacity duration-500",
               (currentStage === 'launch' || currentStage === 'grow') ? "opacity-100" : "opacity-0"
             )}
           >
-            {/* Center engine flame */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-20">
+            {/* Center engine flame - more vibrant with multiple layers */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-28">
               <div className="flame-center"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-20 bg-yellow-300 rounded-t-full animate-flicker opacity-70"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-16 bg-white rounded-t-full animate-flicker opacity-50" style={{animationDelay: "150ms"}}></div>
             </div>
             
-            {/* Left booster flame */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-[35px] w-6 h-16">
+            {/* Left booster flame - enhanced */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-[35px] w-8 h-20">
               <div className="flame-side"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-14 bg-yellow-400 rounded-t-full animate-flicker opacity-70" style={{animationDelay: "100ms"}}></div>
             </div>
             
-            {/* Right booster flame */}
-            <div className="absolute bottom-0 left-1/2 transform translate-x-[15px] w-6 h-16">
+            {/* Right booster flame - enhanced */}
+            <div className="absolute bottom-0 left-1/2 transform translate-x-[25px] w-8 h-20">
               <div className="flame-side"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-14 bg-yellow-400 rounded-t-full animate-flicker opacity-70" style={{animationDelay: "200ms"}}></div>
             </div>
           </div>
           
-          {/* Launch pad structure - appears during define */}
+          {/* Launch pad structure - appears during define - enhanced */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-60 h-16 transition-opacity duration-700",
+              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-16 transition-opacity duration-700",
               (currentStage === 'discover' || currentStage === 'strategize') ? "opacity-0" : "opacity-100"
             )}
           >
-            <div className="absolute bottom-0 left-0 w-12 h-20 border-r-2 border-t-2 border-gray-300"></div>
-            <div className="absolute bottom-0 right-0 w-12 h-20 border-l-2 border-t-2 border-gray-300"></div>
+            {/* Left tower */}
+            <div className="absolute bottom-0 left-0 w-12 h-24 border-r-2 border-t-2 border-gray-300 flex flex-col items-center">
+              <div className="w-2 h-20 bg-gray-400"></div>
+              <div className="w-8 h-1 bg-gray-400 mt-1"></div>
+              <div className="w-8 h-1 bg-gray-400 mt-2"></div>
+            </div>
+            
+            {/* Right tower */}
+            <div className="absolute bottom-0 right-0 w-12 h-24 border-l-2 border-t-2 border-gray-300 flex flex-col items-center">
+              <div className="w-2 h-20 bg-gray-400"></div>
+              <div className="w-8 h-1 bg-gray-400 mt-1"></div>
+              <div className="w-8 h-1 bg-gray-400 mt-2"></div>
+            </div>
+            
+            {/* Launch platform */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-40 h-2 bg-gray-500"></div>
           </div>
           
-          {/* Additional smoke effects during launch */}
+          {/* Enhanced smoke effects during launch */}
           {(currentStage === 'launch' || currentStage === 'grow') && (
             <>
-              <div className="absolute bottom-10 left-1/2 transform -translate-x-[60px] w-16 h-8 bg-white rounded-full opacity-50 animate-pulse"></div>
-              <div className="absolute bottom-5 left-1/2 transform -translate-x-[40px] w-20 h-10 bg-white rounded-full opacity-60 animate-pulse" style={{ animationDelay: '300ms' }}></div>
-              <div className="absolute bottom-8 left-1/2 transform translate-x-[30px] w-14 h-7 bg-white rounded-full opacity-40 animate-pulse" style={{ animationDelay: '150ms' }}></div>
+              <div className="absolute bottom-10 left-1/2 transform -translate-x-[70px] w-20 h-10 bg-white rounded-full opacity-40 animate-pulse"></div>
+              <div className="absolute bottom-5 left-1/2 transform -translate-x-[50px] w-24 h-12 bg-white rounded-full opacity-50 animate-pulse" style={{ animationDelay: '300ms' }}></div>
+              <div className="absolute bottom-8 left-1/2 transform translate-x-[40px] w-18 h-9 bg-white rounded-full opacity-30 animate-pulse" style={{ animationDelay: '150ms' }}></div>
+              
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-[30px] w-15 h-8 bg-white rounded-full opacity-60 animate-pulse" style={{ animationDelay: '220ms' }}></div>
+              <div className="absolute bottom-6 left-1/2 transform translate-x-[20px] w-16 h-8 bg-white rounded-full opacity-50 animate-pulse" style={{ animationDelay: '180ms' }}></div>
             </>
           )}
         </div>

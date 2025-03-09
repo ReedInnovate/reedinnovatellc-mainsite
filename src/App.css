@@ -1,4 +1,3 @@
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -49,7 +48,7 @@
   background: linear-gradient(to bottom, #ff9d00, #ff0000);
   border-radius: 0 0 50% 50%;
   box-shadow: 0 0 10px 5px rgba(255, 157, 0, 0.5);
-  animation: flicker 0.5s infinite alternate;
+  animation: flicker 0.375s infinite alternate;
 }
 
 .flame-side {
@@ -58,10 +57,16 @@
   background: linear-gradient(to bottom, #ffcf8c, #ff9d00);
   border-radius: 0 0 50% 50%;
   box-shadow: 0 0 8px 4px rgba(255, 207, 140, 0.5);
-  animation: flicker 0.7s infinite alternate;
+  animation: flicker 0.525s infinite alternate;
 }
 
 @keyframes flicker {
   0% { height: 90%; opacity: 0.8; }
   100% { height: 100%; opacity: 1; }
+}
+
+/* Add new twinkle animation for stars */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
 }
