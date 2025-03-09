@@ -74,7 +74,7 @@ const WorkingTogetherSection = () => {
     <AnimatedSection id="together" className="bg-gray-50 py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="section-title">Let's Work Together</h2>
+          <h2 className="section-title">Working Together</h2>
           <p className="section-description mx-auto">
             I can help amplify your product launch—no matter where you are in your product's lifecycle. Whether you need full lifecycle management or targeted support in a specific area, I'm here to drive impact and ensure success.
           </p>
