@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -41,14 +42,14 @@
   color: #888;
 }
 
-/* Flame animations for rocket */
+/* Flame animations for rocket - enhanced for more dynamic effect */
 .flame-center {
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, #ff9d00, #ff0000);
   border-radius: 0 0 50% 50%;
   box-shadow: 0 0 10px 5px rgba(255, 157, 0, 0.5);
-  animation: flicker 0.375s infinite alternate;
+  animation: flicker 0.28s infinite alternate; /* Speed increased by 25% */
 }
 
 .flame-side {
@@ -57,7 +58,7 @@
   background: linear-gradient(to bottom, #ffcf8c, #ff9d00);
   border-radius: 0 0 50% 50%;
   box-shadow: 0 0 8px 4px rgba(255, 207, 140, 0.5);
-  animation: flicker 0.525s infinite alternate;
+  animation: flicker 0.39s infinite alternate; /* Speed increased by 25% */
 }
 
 @keyframes flicker {
@@ -69,4 +70,14 @@
 @keyframes twinkle {
   0% { opacity: 0.3; }
   100% { opacity: 1; }
+}
+
+/* Animation for rocket components */
+@keyframes animate-flicker {
+  0% { opacity: 0.7; transform: scaleY(0.95); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+
+.animate-flicker {
+  animation: animate-flicker 0.3s infinite alternate;
 }
