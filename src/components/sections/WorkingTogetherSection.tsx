@@ -74,8 +74,8 @@ const WorkingTogetherSection = () => {
     <AnimatedSection id="together" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
-          <h2 className="section-title text-4xl md:text-5xl">Let's work together</h2>
-          <p className="section-description mx-auto text-lg md:text-xl">
+          <h2 className="section-title text-3xl md:text-4xl">Let's work together</h2>
+          <p className="section-description mx-auto text-sm md:text-base">
             I can help amplify your product launch—no matter where you are in your product's lifecycle. Whether you need full lifecycle management or targeted support in a specific area, I'm here to drive impact and ensure success.
           </p>
         </div>
@@ -90,8 +90,8 @@ const WorkingTogetherSection = () => {
               <div className="h-10 w-10 md:h-12 md:w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-3 md:mb-4">
                 {service.icon}
               </div>
-              <h3 className="text-xl md:text-2xl font-medium mb-2 md:mb-3">{service.title}</h3>
-              <p className="text-gray-600 text-base md:text-lg">{service.description}</p>
+              <h3 className="text-lg md:text-xl font-medium mb-2 md:mb-3">{service.title}</h3>
+              <p className="text-gray-600 text-sm md:text-base">{service.description}</p>
             </div>
           ))}
         </div>
