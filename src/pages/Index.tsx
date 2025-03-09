@@ -45,12 +45,11 @@ const Index = () => {
             </div>
             <div className="hidden lg:block">
               <div className="relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl blur-xl opacity-70"></div>
-                <div className="glass-panel rounded-xl p-8 relative animate-float">
+                <div className="flex justify-center items-center animate-float">
                   <img 
                     src="/lovable-uploads/f8c2bfdf-3de0-4b48-b66b-89e923f2f05f.png" 
                     alt="Rocket launching" 
-                    className="w-full h-auto object-contain"
+                    className="w-1/2 h-auto object-contain"
                   />
                 </div>
               </div>
