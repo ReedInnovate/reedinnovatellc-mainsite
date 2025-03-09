@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -29,11 +28,6 @@ const Index = () => {
               <p className="text-xl text-gray-600 max-w-lg animate-fade-in-left" style={{ animationDelay: '200ms' }}>
                 I help you strategize, define, and launch your products to market - and keep them there. I'm your customer obsessed, innovative thinking, go-to-market all rounder.
               </p>
-              <div className="pt-4 animate-fade-in-left" style={{ animationDelay: '400ms' }}>
-                <Button size="lg">
-                  Learn More
-                </Button>
-              </div>
             </div>
             <div className="hidden lg:block">
               <div className="relative">
@@ -102,11 +96,6 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <div className="pt-4">
-                <Button>
-                  How We Work Together
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -125,15 +114,26 @@ const Index = () => {
                 Skilled at managing product life cycles, leading cross-functional teams, and leveraging customer insights to optimize messaging and positioning.
               </p>
               <div className="pt-4">
-                <Button variant="outline">
-                  Let's Connect
-                </Button>
+                <a 
+                  href="https://www.linkedin.com/in/hunterjreed" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button variant="outline">
+                    Connect on LinkedIn
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-blue-100 rounded-2xl blur-xl opacity-70"></div>
               <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-2xl">
-                <ImagePlaceholder text="Professional Photo" animate={false} className="h-full w-full object-cover" />
+                <img 
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                  alt="Hunter Reed" 
+                  className="h-full w-full object-cover" 
+                />
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="section-title">Working Together</h2>
             <p className="section-description mx-auto">
-              I can help amplify your product launch, no matter where you are in your product's lifecycle. You can assign me to manage a product's lifecycle, or solicit my help for a specific area of your product marketing.
+              I can help amplify your product launch, no matter where you are in your product's lifecycle. You can assign me to manage a product's lifecycle, or solicit my help on a specific need of yours.
             </p>
           </div>
           

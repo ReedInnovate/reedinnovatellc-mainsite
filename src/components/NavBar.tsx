@@ -42,7 +42,7 @@ const NavBar = () => {
           to="/" 
           className="text-xl font-medium tracking-tight"
         >
-          Reed Innovate
+          Reed Innovate, LLC
         </Link>
         
         {/* Desktop Navigation */}
