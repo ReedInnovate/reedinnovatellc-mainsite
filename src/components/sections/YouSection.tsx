@@ -45,7 +45,7 @@ const YouSection = () => {
   return <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="section-title md:text-4xl text-6xl">You're Launching Products</h2>
+          <h2 className="section-title md:text-4xl text-5xl">You're Launching Products</h2>
           <p className="section-description mx-auto text-center md:text-base font-normal text-lg">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
