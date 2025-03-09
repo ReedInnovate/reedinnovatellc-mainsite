@@ -9,7 +9,7 @@ const YouSection = () => {
         <div className="text-center mb-16">
           <h2 className="section-title">You're Launching Products</h2>
           <p className="section-description mx-auto text-center">
-            And you are looking for a driving force behind getting a product to market and keeping it there.
+            And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
         
