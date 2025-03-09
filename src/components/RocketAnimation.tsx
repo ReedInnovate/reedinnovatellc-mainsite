@@ -103,9 +103,7 @@ const RocketAnimation = () => {
               currentStage === 'discover' && progress > 50 && "translate-y-0",
               currentStage === 'discover' && progress <= 50 && "translate-y-[100px]",
             )}
-          >
-            <div className="absolute top-6 left-1/2 transform -translate-x-1/2 text-sm font-bold text-blue-600">USA</div>
-          </div>
+          />
           
           {/* Rocket parts - Boosters & Nose cone */}
           <div 
