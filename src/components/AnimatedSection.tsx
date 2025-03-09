@@ -1,5 +1,5 @@
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, memo } from 'react';
 import { cn } from '@/lib/utils';
 
 interface AnimatedSectionProps {
@@ -10,7 +10,8 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-const AnimatedSection = ({
+// Using memo to prevent unnecessary re-renders
+const AnimatedSection = memo(({
   id,
   className,
   children,
@@ -21,6 +22,7 @@ const AnimatedSection = ({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Use passive listener to improve performance
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,16 +37,29 @@ const AnimatedSection = ({
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
+
+  // Create transform style based on animation type
+  const getTransformStyle = () => {
+    if (!isVisible) {
+      switch (animationType) {
+        case 'fade-in-left': return 'translateX(-20px)';
+        case 'fade-in-right': return 'translateX(20px)';
+        default: return 'translateY(20px)';
+      }
+    }
+    return 'none';
+  };
 
   return (
     <section
@@ -58,10 +73,7 @@ const AnimatedSection = ({
           isVisible && 'opacity-100'
         )}
         style={{
-          transform: isVisible ? 'none' : 
-            animationType === 'fade-in-left' ? 'translateX(-20px)' : 
-            animationType === 'fade-in-right' ? 'translateX(20px)' : 
-            'translateY(20px)',
+          transform: getTransformStyle(),
           transition: `transform 0.7s ease-out ${delay}ms, opacity 0.7s ease-out ${delay}ms`
         }}
       >
@@ -69,6 +81,8 @@ const AnimatedSection = ({
       </div>
     </section>
   );
-};
+});
+
+AnimatedSection.displayName = 'AnimatedSection';
 
 export default AnimatedSection;

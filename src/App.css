@@ -1,47 +1,11 @@
+
+/* Clean up and optimize CSS */
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* Flame animations for rocket */
+/* Optimize flame animations for rocket */
 .flame-center {
   width: 100%;
   height: 100%;
@@ -49,6 +13,7 @@
   border-radius: 0 0 50% 50%;
   box-shadow: 0 0 10px 5px rgba(255, 157, 0, 0.5);
   animation: flicker 0.375s infinite alternate;
+  will-change: transform, opacity; /* Hint for browser optimization */
 }
 
 .flame-side {
@@ -58,6 +23,7 @@
   border-radius: 0 0 50% 50%;
   box-shadow: 0 0 8px 4px rgba(255, 207, 140, 0.5);
   animation: flicker 0.525s infinite alternate;
+  will-change: transform, opacity;
 }
 
 @keyframes flicker {
@@ -65,8 +31,43 @@
   100% { height: 100%; opacity: 1; }
 }
 
-/* Add new twinkle animation for stars */
+/* Optimize twinkle animation for stars */
 @keyframes twinkle {
   0% { opacity: 0.3; }
   100% { opacity: 1; }
+}
+
+/* Use hardware acceleration for animations */
+.animate-spin, .animate-pulse, .animate-bounce, .animate-float {
+  will-change: transform;
+}
+
+/* Better tap target sizes for mobile */
+@media (max-width: 640px) {
+  button, 
+  .button, 
+  [role="button"], 
+  a.nav-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Optimize image display */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Improve form element accessibility */
+input, 
+textarea, 
+select, 
+button {
+  font-family: inherit;
+}
+
+/* Reduce layout shifts */
+[data-animate] {
+  content-visibility: auto;
 }

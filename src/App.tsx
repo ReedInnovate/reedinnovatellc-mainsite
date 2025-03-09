@@ -8,18 +8,41 @@ import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+// Create a persistent query client with optimized settings
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
 
 const App = () => {
-  // Set correct viewport height for mobile browsers
+  // Set correct viewport height for mobile browsers and optimize initial load
   useEffect(() => {
+    // Add preconnect for external domains
+    const addPreconnect = (url: string) => {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = url;
+      document.head.appendChild(link);
+    };
+
+    // Preconnect to domains that will be used
+    addPreconnect('https://fonts.gstatic.com');
+    addPreconnect('https://app.smartsheet.com');
+
+    // Set viewport height for mobile
     const setVH = () => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
 
     setVH();
-    window.addEventListener('resize', setVH);
+    window.addEventListener('resize', setVH, { passive: true });
+    
     return () => window.removeEventListener('resize', setVH);
   }, []);
 
