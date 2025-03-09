@@ -1,10 +1,10 @@
+
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import ContactForm from '@/components/ContactForm';
 import Button from '@/components/Button';
-import RocketAnimation from '@/components/RocketAnimation';
 import { ArrowDown } from 'lucide-react';
 
 const Index = () => {
@@ -73,7 +73,11 @@ const Index = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <RocketAnimation />
+              <ImagePlaceholder 
+                height="400px" 
+                text="Animation Placeholder" 
+                className="rounded-2xl shadow-xl" 
+              />
             </div>
             <div className="space-y-6 order-1 lg:order-2">
               <h3 className="text-3xl font-light">What You Need</h3>
