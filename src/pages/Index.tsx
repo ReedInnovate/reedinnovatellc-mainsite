@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -154,39 +153,49 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Messaging and Positioning",
-                description: "Craft compelling narratives that highlight your product's unique value proposition, and answer important questions like: Who's the product for? What unique problems does it solve? Why's it different to the competition? How does it benefit our audience?",
+                title: "Customer & Market Research",
+                description: "Collect data-driven insights about your target audience, competitors, and market trends before, during, and after any type of launch",
                 delay: 0
+              },
+              {
+                title: "Messaging & Positioning",
+                description: "Craft compelling narratives that highlight your product's unique value proposition, and unify internal teams around a source of truth for the answers to your product's most import questions.",
+                delay: 100
+              },
+              {
+                title: "Product Strategy & Roadmap",
+                description: "Define clear goals and roadmaps to position your product for success in the market using data-driven customer intel",
+                delay: 200
+              },
+              {
+                title: "Go-to-Market Strategy",
+                description: "Implement strategy covering market research & target audience, value proposition & positioning, distribution & sales channels, marketing & demand generation, customer experience & retention, measurement & optimization.",
+                delay: 300
               },
               {
                 title: "Product Launch Management",
                 description: "Whether a small-scale feature update or a full-blown new product, coordinate cross-functional launch efforts to ensure successful product introductions.",
-                delay: 100
-              },
-              {
-                title: "Go-to-Market Strategy",
-                description: "Create comprehensive strategies for introducing or relaunching products to maximize impact.",
-                delay: 200
-              },
-              {
-                title: "Customer & Market Research",
-                description: "Collect data-driven insights about your target audience, competitors, and market trends before, during, and after any type of launch.",
-                delay: 300
-              },
-              {
-                title: "Product Strategy & Roadmap",
-                description: "Define clear goals and roadmaps to position your product for success in the market using data-driven customer intel.",
                 delay: 400
               },
               {
-                title: "Growth Strategy",
-                description: "Identify opportunities to scale adoption and expand your product's market presence.",
+                title: "Content Marketing",
+                description: "Create anything from blogs, whitepapers, and case studies to social media posts, product guides, sales one-pagers, and more",
                 delay: 500
               },
               {
-                title: "Content Marketing & Automation",
-                description: "Creating sales collateral: Depending on the type of launch, demo videos, battlecards, new webpages, sales training, and more. Reporting on product marketing success: Number of daily, active, and/or monthly users, Overall revenue goals, Win rates, Usage of product marketing assets, Sales confidence, Marketing-qualified leads (MQLs) and sales-qualified leads (SQLs), and Customer satisfaction. Content marketing: Anything from blogs, whitepapers, and case studies to social media posts, product guides, sales one-pagers, and more. Managing the website: Making sure new features and products are reflected, messaging elements are up-to-date, and everything is optimized. Product roadmap planning: Shaping roadmaps using data-driven customer intel. Onboarding customers: Ensuring everyone gets off to a good start.",
+                title: "Content Automation",
+                description: "Harness and implement emerging AI technologies to automate content creation, increase throughput, and improve performance.",
                 delay: 600
+              },
+              {
+                title: "Strategic Project Management",
+                description: "Effectively plan, manage, and report on any strategic or special project linked to business objectives and key results.",
+                delay: 700
+              },
+              {
+                title: "Growth Strategy",
+                description: "Identify opportunities to scale adoption, drive engagement, build pipeline, and expand your product's market presence.",
+                delay: 800
               }
             ].map((service, index) => (
               <div 
