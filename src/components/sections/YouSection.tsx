@@ -61,8 +61,8 @@ const YouSection = () => {
     <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="section-title text-3xl md:text-4xl">You're Launching Products</h2>
-          <p className="section-description mx-auto text-center text-sm md:text-base">
+          <h2 className="section-title text-4xl md:text-5xl">You're Launching Products</h2>
+          <p className="section-description mx-auto text-center text-lg md:text-xl">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
@@ -71,14 +71,14 @@ const YouSection = () => {
           <div className="order-2 lg:order-1">
             <div className="h-auto md:h-[300px] w-full mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white p-4 md:p-5">
               <div className="flex flex-col h-full">
-                <h3 className="text-lg md:text-xl font-bold mb-4">Go-To-Market Journey</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Go-To-Market Journey</h3>
                 
                 {/* Current Stage Featured Display */}
                 <div className="mb-6">
-                  <h4 className="text-lg md:text-xl font-medium capitalize text-primary mb-2">
+                  <h4 className="text-xl md:text-2xl font-medium capitalize text-primary mb-2">
                     {currentStage}
                   </h4>
-                  <p className="text-sm md:text-base text-gray-700">
+                  <p className="text-base md:text-lg text-gray-700">
                     {stageInfo.description}
                   </p>
                   <div className="h-3 md:h-4 bg-gray-100 rounded-full mt-3 overflow-hidden relative">
@@ -127,7 +127,7 @@ const YouSection = () => {
                       </div>
                       <span 
                         className={cn(
-                          "text-[0.65rem] md:text-xs font-medium capitalize",
+                          "text-sm md:text-base font-medium capitalize",
                           stage.title === currentStage ? "text-primary" : "text-gray-500"
                         )}
                       >
@@ -140,8 +140,8 @@ const YouSection = () => {
             </div>
           </div>
           <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-            <h3 className="text-2xl md:text-3xl font-light">What You Need</h3>
-            <ul className="space-y-3 md:space-y-4 text-sm md:text-base">
+            <h3 className="text-3xl md:text-4xl font-light">What You Need</h3>
+            <ul className="space-y-3 md:space-y-4 text-lg md:text-xl">
               {[
                 "Strategic product positioning in competitive markets",
                 "Compelling messaging that resonates with your target audience",
