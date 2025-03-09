@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -66,7 +67,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="section-title">You're Launching Products</h2>
             <p className="section-description mx-auto text-center">
-              You're looking for a driving force behind getting a product to market and keeping it there.
+              And you are looking for a driving force behind getting a product to market and keeping it there.
             </p>
           </div>
           
@@ -146,7 +147,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="section-title">Working Together</h2>
             <p className="section-description mx-auto">
-              I can help amplify your product launch, no matter where you are in your product's lifecycle. You can assign me to manage a product's lifecycle, or solicit my help on a specific need of yours.
+              I can help amplify your product launch—no matter where you are in your product's lifecycle. Whether you need full lifecycle management or targeted support in a specific area, I'm here to drive impact and ensure success.
             </p>
           </div>
           
@@ -220,7 +221,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="section-title">Contact Me</h2>
             <p className="section-description mx-auto">
-              Ready to take your product to the next level? Let's discuss how I can help you achieve your goals.
+              Let's discuss how I can help you achieve your goals.
             </p>
           </div>
           
