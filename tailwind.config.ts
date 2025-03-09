@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -101,6 +100,22 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-5px)' }
+				},
+				'flame': {
+					'0%, 100%': { height: '8rem', opacity: '0.8' },
+					'50%': { height: '6rem', opacity: '0.6' }
+				},
+				'flame-inner': {
+					'0%, 100%': { height: '6rem', opacity: '0.9' },
+					'50%': { height: '4.5rem', opacity: '0.7' }
+				},
+				'twinkle': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				'orbit': {
+					'0%': { transform: 'translateX(-50%) rotate(0deg) translateY(0) rotate(0deg)' },
+					'100%': { transform: 'translateX(-50%) rotate(360deg) translateY(0) rotate(-360deg)' }
 				}
 			},
 			animation: {
@@ -109,7 +124,11 @@ export default {
 				'fade-in': 'fade-in 0.7s ease-out forwards',
 				'fade-in-left': 'fade-in-left 0.7s ease-out forwards',
 				'fade-in-right': 'fade-in-right 0.7s ease-out forwards',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'flame': 'flame 0.6s ease-in-out infinite',
+				'flame-inner': 'flame-inner 0.6s ease-in-out infinite',
+				'twinkle': 'twinkle 3s ease-in-out infinite',
+				'orbit': 'orbit 20s linear infinite'
 			}
 		}
 	},
