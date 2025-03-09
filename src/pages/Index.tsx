@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -5,7 +6,7 @@ import ImagePlaceholder from '@/components/ImagePlaceholder';
 import ContactForm from '@/components/ContactForm';
 import Button from '@/components/Button';
 import RocketAnimation from '@/components/RocketAnimation';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Linkedin, Mail } from 'lucide-react';
 
 const Index = () => {
   useEffect(() => {
@@ -103,22 +104,32 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="section-title">About Me</h2>
+              <h2 className="section-title">About Hunter Reed</h2>
               <p className="text-gray-600 leading-relaxed">
-                Motivated self-starter with 7+ years of experience launching disruptive products and shaping market trends. Proven track record of merging innovative solutions with effective go-to-market strategies, driving measurable business impact for over 2M users and influencing $10M+ in annual recurring revenue.
+                Motivated self-starter with 7+ years of B2B SaaS experience launching disruptive products and shaping market trends. Proven track record of merging innovative solutions with effective go-to-market strategies, driving measurable business impact for over 2M users and influencing $10M+ in annual recurring revenue.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Skilled at managing product life cycles, leading cross-functional teams, and leveraging customer insights to optimize messaging and positioning.
+                Skilled at managing product lifecycles, leading cross-functional teams, and leveraging customer insights to optimize message and positioning.
               </p>
-              <div className="pt-4">
+              <div className="pt-4 flex flex-wrap gap-4">
                 <a 
                   href="https://www.linkedin.com/in/hunterjreed" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="inline-flex items-center"
                 >
-                  <Button variant="outline">
+                  <Button variant="outline" className="flex items-center gap-2">
+                    <Linkedin size={18} />
                     Connect on LinkedIn
+                  </Button>
+                </a>
+                <a 
+                  href="mailto:hunter@reedinnovate.com" 
+                  className="inline-flex items-center"
+                >
+                  <Button variant="outline" className="flex items-center gap-2">
+                    <Mail size={18} />
+                    Email Me
                   </Button>
                 </a>
               </div>
