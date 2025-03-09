@@ -82,12 +82,12 @@ const YouSection = () => {
                   <p className="text-base text-gray-700">
                     {stageInfo.description}
                   </p>
-                  <div className="h-2 bg-gray-100 rounded-full mt-3 overflow-hidden relative">
+                  <div className="h-3 bg-gray-100 rounded-full mt-3 overflow-hidden relative">
                     <div 
                       className="h-full bg-primary transition-all duration-200"
                       style={{ width: `${progress}%` }}
                     />
-                    {/* Rocket icon that moves with the progress */}
+                    {/* Rocket icon that moves with the progress - made bigger */}
                     <div 
                       className="absolute top-1/2 -translate-y-1/2 transition-all duration-200 text-primary"
                       style={{ 
@@ -95,7 +95,7 @@ const YouSection = () => {
                         transform: `translateX(-50%) translateY(-50%)` 
                       }}
                     >
-                      <Rocket size={16} className="rotate-90" />
+                      <Rocket size={24} className="rotate-90" />
                     </div>
                   </div>
                 </div>
