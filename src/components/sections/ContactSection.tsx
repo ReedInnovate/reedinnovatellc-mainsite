@@ -11,6 +11,9 @@ const ContactSection = () => {
           <p className="section-description mx-auto">
             Let's discuss how I can help you achieve your goals.
           </p>
+          <p className="text-sm text-gray-500 mt-4">
+            All messages will be sent directly to hunter@reedinnovate.com
+          </p>
         </div>
         
         <ContactForm />

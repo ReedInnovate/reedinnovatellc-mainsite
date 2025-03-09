@@ -1,7 +1,8 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import Button from './Button';
+import emailjs from 'emailjs-com';
 
 interface FormData {
   name: string;
@@ -9,6 +10,11 @@ interface FormData {
   phone: string;
   message: string;
 }
+
+// EmailJS service configuration
+const EMAILJS_SERVICE_ID = 'default_service'; // Replace with your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = 'template_default'; // Replace with your EmailJS template ID
+const EMAILJS_USER_ID = 'user_xxxxxxxxx'; // Replace with your EmailJS user ID
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -19,6 +25,23 @@ const ContactForm = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isEmailjsInitialized, setIsEmailjsInitialized] = useState(false);
+
+  useEffect(() => {
+    // Initialize EmailJS
+    const initEmailjs = async () => {
+      try {
+        if (!isEmailjsInitialized) {
+          emailjs.init(EMAILJS_USER_ID);
+          setIsEmailjsInitialized(true);
+        }
+      } catch (error) {
+        console.error('Error initializing EmailJS:', error);
+      }
+    };
+    
+    initEmailjs();
+  }, [isEmailjsInitialized]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,20 +54,47 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Prepare template parameters (adjust according to your EmailJS template)
+      const templateParams = {
+        to_email: 'hunter@reedinnovate.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      };
+      
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+      
+      // Show success toast
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
+      
+      // Reset form
       setFormData({
         name: '',
         email: '',
         phone: '',
         message: '',
       });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error sending message",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
