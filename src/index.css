@@ -43,10 +43,6 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
-  html, body, #root {
-    height: 100%;
-  }
 }
 
 @layer components {
@@ -67,20 +63,20 @@
   }
 
   .section {
-    @apply py-16 md:py-20 overflow-hidden;
+    @apply py-20 overflow-hidden;
   }
   
   .section-title {
-    @apply font-light mb-3 md:mb-4 opacity-0 animate-fade-in;
+    @apply text-4xl md:text-5xl font-light mb-4 opacity-0 animate-fade-in;
   }
   
   .section-description {
-    @apply text-gray-600 max-w-3xl opacity-0 animate-fade-in;
+    @apply text-lg text-gray-600 max-w-3xl opacity-0 animate-fade-in;
     animation-delay: 200ms;
   }
   
   .button {
-    @apply px-4 py-2 md:px-6 md:py-3 rounded-md font-medium transition-all duration-300 inline-block;
+    @apply px-6 py-3 rounded-md font-medium transition-all duration-300 inline-block;
   }
   
   .button-primary {
