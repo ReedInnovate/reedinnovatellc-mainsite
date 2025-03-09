@@ -1,8 +1,62 @@
 
 import AnimatedSection from '@/components/AnimatedSection';
-import RocketAnimation from '@/components/RocketAnimation';
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+
+type Stage = 'discover' | 'strategize' | 'define' | 'launch' | 'grow';
+
+interface StageInfo {
+  title: Stage;
+  description: string;
+}
+
+const stages: StageInfo[] = [
+  {
+    title: 'discover',
+    description: 'Gather insights to understand the market, customers, and competitive landscape.'
+  },
+  {
+    title: 'strategize',
+    description: 'Develop a go-to-market (GTM) strategy that aligns with business goals and market opportunities.'
+  },
+  {
+    title: 'define',
+    description: 'Craft and refine messaging, positioning, and assets for a compelling launch.'
+  },
+  {
+    title: 'launch',
+    description: 'Execute the go-to-market plan and introduce the product to the target audience.'
+  },
+  {
+    title: 'grow',
+    description: 'Drive ongoing adoption, retention, and expansion.'
+  }
+];
 
 const YouSection = () => {
+  const [currentStage, setCurrentStage] = useState<Stage>('discover');
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const stageIndex = stages.findIndex(s => s.title === currentStage);
+    
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          // Move to next stage or loop back to the first
+          const nextIndex = (stageIndex + 1) % stages.length;
+          setCurrentStage(stages[nextIndex].title);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 56); // Keep the same speed as the original animation
+
+    return () => clearInterval(interval);
+  }, [currentStage]);
+
+  const stageInfo = stages.find(s => s.title === currentStage) || stages[0];
+
   return (
     <AnimatedSection id="you" className="bg-gray-50 py-24">
       <div className="container mx-auto px-4 md:px-6">
@@ -15,7 +69,50 @@ const YouSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <RocketAnimation />
+            <div className="h-[400px] w-full border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white">
+              <div className="flex flex-col h-full p-6">
+                <h3 className="text-2xl font-medium mb-4">Go-To-Market Journey</h3>
+                
+                <div className="flex flex-col gap-6 flex-grow">
+                  {stages.map(stage => (
+                    <div key={stage.title} className="flex flex-col">
+                      <div className="flex items-center gap-3 mb-1">
+                        <div 
+                          className={cn(
+                            "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0",
+                            stage.title === currentStage ? "bg-primary" : "bg-gray-200"
+                          )}
+                        >
+                          {stage.title === currentStage && (
+                            <div className="w-2 h-2 bg-white rounded-full" />
+                          )}
+                        </div>
+                        <span 
+                          className={cn(
+                            "text-lg capitalize font-medium",
+                            stage.title === currentStage ? "text-primary" : "text-gray-500"
+                          )}
+                        >
+                          {stage.title}
+                        </span>
+                      </div>
+                      
+                      {stage.title === currentStage && (
+                        <div className="ml-8 mt-1">
+                          <p className="text-gray-700">{stage.description}</p>
+                          <div className="h-1 bg-gray-100 rounded-full mt-3 overflow-hidden">
+                            <div 
+                              className="h-full bg-primary transition-all duration-200"
+                              style={{ width: `${progress}%` }}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           <div className="space-y-6 order-1 lg:order-2">
             <h3 className="text-3xl font-light">What You Need</h3>
