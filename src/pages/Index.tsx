@@ -6,7 +6,20 @@ import ImagePlaceholder from '@/components/ImagePlaceholder';
 import ContactForm from '@/components/ContactForm';
 import Button from '@/components/Button';
 import RocketAnimation from '@/components/RocketAnimation';
-import { ArrowDown, Linkedin, Mail } from 'lucide-react';
+import { 
+  ArrowDown, 
+  Linkedin, 
+  Mail, 
+  Search, 
+  MessageSquare, 
+  BarChart3, 
+  Rocket, 
+  PenTool, 
+  Target, 
+  ArrowUpRight, 
+  ScrollText, 
+  Zap 
+} from 'lucide-react';
 
 const Index = () => {
   useEffect(() => {
@@ -163,47 +176,56 @@ const Index = () => {
               {
                 title: "Customer & Market Research",
                 description: "Collect data-driven insights about your target audience, competitors, and market trends before, during, and after any type of launch",
-                delay: 0
+                delay: 0,
+                icon: <Search className="text-blue-600" />
               },
               {
                 title: "Messaging & Positioning",
                 description: "Craft compelling narratives that highlight your product's unique value proposition, and unify internal teams around a source of truth for the answers to your product's most import questions.",
-                delay: 100
+                delay: 100,
+                icon: <MessageSquare className="text-blue-600" />
               },
               {
                 title: "Product Strategy & Roadmap",
                 description: "Define clear goals and roadmaps to position your product for success in the market using data-driven customer intel",
-                delay: 200
+                delay: 200,
+                icon: <Target className="text-blue-600" />
               },
               {
                 title: "Go-to-Market Strategy",
                 description: "Implement strategy covering market research & target audience, value proposition & positioning, distribution & sales channels, marketing & demand generation, customer experience & retention, measurement & optimization.",
-                delay: 300
+                delay: 300,
+                icon: <ArrowUpRight className="text-blue-600" />
               },
               {
                 title: "Product Launch Management",
                 description: "Whether a small-scale feature update or a full-blown new product, coordinate cross-functional launch efforts to ensure successful product introductions.",
-                delay: 400
+                delay: 400,
+                icon: <Rocket className="text-blue-600" />
               },
               {
                 title: "Content Marketing",
                 description: "Create anything from blogs, whitepapers, and case studies to social media posts, product guides, sales one-pagers, and more",
-                delay: 500
+                delay: 500,
+                icon: <ScrollText className="text-blue-600" />
               },
               {
                 title: "Content Automation",
                 description: "Harness and implement emerging AI technologies to automate content creation, increase throughput, and improve performance.",
-                delay: 600
+                delay: 600,
+                icon: <Zap className="text-blue-600" />
               },
               {
                 title: "Strategic Project Management",
                 description: "Effectively plan, manage, and report on any strategic or special project linked to business objectives and key results.",
-                delay: 700
+                delay: 700,
+                icon: <BarChart3 className="text-blue-600" />
               },
               {
                 title: "Growth Strategy",
                 description: "Identify opportunities to scale adoption, drive engagement, build pipeline, and expand your product's market presence.",
-                delay: 800
+                delay: 800,
+                icon: <PenTool className="text-blue-600" />
               }
             ].map((service, index) => (
               <div 
@@ -212,7 +234,7 @@ const Index = () => {
                 style={{ animationDelay: `${service.delay}ms` }}
               >
                 <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
-                  <span className="text-blue-600 text-xl font-medium">{index + 1}</span>
+                  {service.icon}
                 </div>
                 <h3 className="text-xl font-medium mb-3">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
