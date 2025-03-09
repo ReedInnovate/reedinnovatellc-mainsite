@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -130,7 +131,7 @@ const Index = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-blue-100 rounded-2xl blur-xl opacity-70"></div>
               <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                  src="/lovable-uploads/1deb589d-a34d-48c8-afae-6d2c8bc0d31c.png" 
                   alt="Hunter Reed" 
                   className="h-full w-full object-cover" 
                 />
