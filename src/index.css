@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,6 +81,100 @@
   
   .button-primary {
     @apply bg-primary text-white shadow-md hover:shadow-lg hover:translate-y-[-2px];
+  }
+
+  .fire-animation {
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(to bottom, #ff4d00, #ffcc00);
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    animation: flicker 0.3s infinite alternate;
+  }
+
+  .fire-animation::before,
+  .fire-animation::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(to bottom, #ff4d00, #ffcc00);
+    border-radius: 0 0 10px 10px;
+    animation: flicker 0.2s infinite alternate;
+  }
+
+  .fire-animation::before {
+    left: -30%;
+    animation-delay: 0.1s;
+  }
+
+  .fire-animation::after {
+    right: -30%;
+    animation-delay: 0.2s;
+  }
+
+  .smoke-cloud {
+    width: 100%;
+    height: 40px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(200,200,200,0.2) 70%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    position: relative;
+    animation: rise 2s infinite;
+    transform-origin: center bottom;
+  }
+
+  .smoke-cloud::before,
+  .smoke-cloud::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(200,200,200,0.2) 70%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    animation: spread 2s infinite;
+  }
+
+  .smoke-cloud::before {
+    left: -20%;
+    bottom: 10%;
+    animation-delay: 0.5s;
+  }
+
+  .smoke-cloud::after {
+    right: -20%;
+    bottom: 10%;
+    animation-delay: 0.8s;
+  }
+
+  @keyframes flicker {
+    0% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(1.2);
+    }
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-30px) scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spread {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
   }
 }
 
