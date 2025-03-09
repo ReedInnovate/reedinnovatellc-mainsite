@@ -1,10 +1,10 @@
+
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import ContactForm from '@/components/ContactForm';
 import Button from '@/components/Button';
-import RocketAnimation from '@/components/RocketAnimation';
 import { ArrowDown } from 'lucide-react';
 
 const Index = () => {
@@ -35,8 +35,26 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="hidden lg:block h-96">
-              <RocketAnimation />
+            <div className="hidden lg:block">
+              <div className="relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl blur-xl opacity-70"></div>
+                <div className="glass-panel rounded-xl p-8 relative animate-float">
+                  <div className="space-y-4">
+                    <div className="h-2 w-24 bg-blue-100 rounded"></div>
+                    <div className="h-2 w-32 bg-blue-100 rounded"></div>
+                    <div className="h-2 w-20 bg-blue-100 rounded"></div>
+                  </div>
+                  <div className="mt-8 flex items-start space-x-4">
+                    <div className="w-16 h-16 rounded-full bg-blue-100"></div>
+                    <div className="space-y-2">
+                      <div className="h-2 w-24 bg-blue-100 rounded"></div>
+                      <div className="h-2 w-32 bg-blue-100 rounded"></div>
+                      <div className="h-2 w-20 bg-blue-100 rounded"></div>
+                    </div>
+                  </div>
+                  <div className="absolute top-2 right-2 w-3 h-3 rounded-full bg-blue-200"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
