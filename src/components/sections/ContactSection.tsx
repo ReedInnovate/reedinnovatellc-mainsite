@@ -3,11 +3,11 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 const ContactSection = () => {
   return (
-    <AnimatedSection id="contact" className="py-24">
+    <AnimatedSection id="contact" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="section-title">Contact Me</h2>
-          <p className="section-description mx-auto">
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-16">
+          <h2 className="section-title text-3xl md:text-4xl">Contact Me</h2>
+          <p className="section-description mx-auto text-sm md:text-base">
             Let's connect and discuss how I can help you achieve your goals. All responses are sent to hunter@reedinnovate.com.
           </p>
         </div>
