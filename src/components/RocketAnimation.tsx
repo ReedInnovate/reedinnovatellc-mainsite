@@ -43,9 +43,9 @@ const RocketAnimation: React.FC = () => {
   const currentStage = stages[currentStageIndex];
   
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden flex flex-col md:flex-row">
-      {/* Text section on the left */}
-      <div className="w-full md:w-3/5 p-6 bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col justify-center">
+    <div className="w-full h-[400px] rounded-2xl overflow-hidden flex flex-col md:flex-row">
+      {/* Text section on the left - 50% width */}
+      <div className="w-full md:w-1/2 p-6 bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col justify-center">
         <div className="space-y-4">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-800">Go-to-Market Journey</h3>
           
@@ -73,8 +73,8 @@ const RocketAnimation: React.FC = () => {
         </div>
       </div>
       
-      {/* Rocket animation section on the right */}
-      <div className="w-full md:w-2/5 bg-gradient-to-br from-blue-900 to-indigo-900 relative overflow-hidden">
+      {/* Rocket animation section on the right - 50% width */}
+      <div className="w-full md:w-1/2 h-full bg-gradient-to-br from-blue-900 to-indigo-900 relative">
         {/* Animated stars in background */}
         <div className="absolute inset-0 opacity-60">
           {Array.from({ length: 50 }).map((_, i) => (
@@ -86,69 +86,114 @@ const RocketAnimation: React.FC = () => {
                 height: `${Math.random() * 3 + 1}px`,
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 3 + 2}s`,
-                animationDelay: `${Math.random() * 2}s`,
-                animation: 'twinkle 3s infinite alternate'
+                animation: `twinkle ${Math.random() * 3 + 2}s infinite alternate`,
+                animationDelay: `${Math.random() * 2}s`
               }}
             />
           ))}
         </div>
         
-        {/* Launch platform */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-28 h-4 bg-gray-700 rounded"></div>
+        {/* Launch pad */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-40 h-2 bg-gray-400 rounded"></div>
+        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-60 h-5 bg-gray-600 rounded-lg"></div>
         
-        {/* Space Shuttle and its parts */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-32 h-56">
-            {/* External fuel tank (orange) */}
-            <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 w-10 h-36 bg-orange-500 rounded-lg transition-all duration-700 ${currentStageIndex >= 0 ? 'opacity-100' : 'opacity-0 translate-y-10'}`}></div>
+        {/* Rocket parts assembly */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          {/* Stage 1: Fuselage (Discover) */}
+          <div 
+            className={`relative transition-all duration-500 ease-out ${
+              currentStageIndex >= 0 ? 'opacity-100' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            {/* Main fuselage body */}
+            <div className="w-16 h-44 bg-white rounded-t-full rounded-b-lg shadow-lg z-10"></div>
             
-            {/* Solid rocket boosters (white) */}
-            <div className={`absolute bottom-4 left-1/2 transform -translate-x-[140%] w-5 h-32 bg-gray-200 rounded-lg transition-all duration-700 ${currentStageIndex >= 1 ? 'opacity-100' : 'opacity-0 translate-y-10'}`}></div>
-            <div className={`absolute bottom-4 left-1/2 transform -translate-x-[-40%] w-5 h-32 bg-gray-200 rounded-lg transition-all duration-700 ${currentStageIndex >= 1 ? 'opacity-100' : 'opacity-0 translate-y-10'}`}></div>
+            {/* Detail lines on fuselage */}
+            <div className="absolute top-10 left-0 w-16 h-1 bg-gray-200"></div>
+            <div className="absolute top-20 left-0 w-16 h-1 bg-gray-200"></div>
+            <div className="absolute top-30 left-0 w-16 h-1 bg-gray-200"></div>
+          </div>
+          
+          {/* Stage 2: Boosters & Nose Cone (Strategize) */}
+          <div 
+            className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full transition-all duration-500 ease-out ${
+              currentStageIndex >= 1 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Nose cone */}
+            <div className="w-16 h-16 bg-gray-300 rounded-t-full"></div>
             
-            {/* Orbiter body (white with black details) */}
-            <div className={`absolute bottom-16 left-1/2 transform -translate-x-1/2 w-20 h-16 transition-all duration-700 ${currentStageIndex >= 2 ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-              {/* Main body */}
-              <div className="absolute bottom-0 w-full h-full bg-white rounded-t-xl"></div>
-              
-              {/* Cockpit window */}
-              <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-6 h-3 bg-black rounded-t-lg"></div>
-              
-              {/* Wings */}
-              <div className="absolute bottom-3 -left-5 w-10 h-4 bg-white skew-y-[20deg] rotate-12"></div>
-              <div className="absolute bottom-3 -right-5 w-10 h-4 bg-white skew-y-[-20deg] rotate-[-12deg]"></div>
-              
-              {/* Tail fin */}
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-3 h-8 bg-white"></div>
+            {/* Side boosters */}
+            <div className="absolute top-36 -left-7 w-6 h-30 bg-orange-500 rounded-lg"></div>
+            <div className="absolute top-36 -right-7 w-6 h-30 bg-orange-500 rounded-lg"></div>
+          </div>
+          
+          {/* Stage 3: Winglets & Launch Tower (Define) */}
+          <div 
+            className={`transition-all duration-500 ease-out ${
+              currentStageIndex >= 2 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Winglets */}
+            <div className="absolute top-32 -left-10 w-10 h-6 bg-white skew-y-[20deg] rotate-12"></div>
+            <div className="absolute top-32 -right-10 w-10 h-6 bg-white skew-y-[-20deg] rotate-[-12deg]"></div>
+            
+            {/* Launch tower */}
+            <div className="absolute -top-10 -right-40 w-8 h-64 bg-gray-700"></div>
+            <div className="absolute -top-10 -right-36 w-16 h-2 bg-gray-600"></div>
+            <div className="absolute top-10 -right-36 w-16 h-2 bg-gray-600"></div>
+            <div className="absolute top-30 -right-36 w-16 h-2 bg-gray-600"></div>
+          </div>
+          
+          {/* Stage 4: Engines firing (Launch) */}
+          <div 
+            className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-500 ease-out ${
+              currentStageIndex >= 3 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Main engine flames */}
+            <div className="relative">
+              <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 w-8 h-12 animate-pulse bg-orange-500 rounded-b-full opacity-80"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-9 w-6 h-9 animate-pulse bg-yellow-500 rounded-b-full opacity-70"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-7 w-4 h-7 animate-pulse bg-white rounded-b-full opacity-60"></div>
             </div>
             
-            {/* Payload bay doors open (at launch stage) */}
-            <div className={`absolute bottom-24 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${currentStageIndex >= 3 ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="w-16 h-4 bg-gray-800 rounded"></div>
+            {/* Smoke clouds */}
+            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2">
+              <div className="absolute -left-20 bottom-0 w-12 h-8 rounded-full bg-gray-300 opacity-60"></div>
+              <div className="absolute -left-10 bottom-2 w-14 h-9 rounded-full bg-gray-300 opacity-60"></div>
+              <div className="absolute left-0 bottom-0 w-16 h-10 rounded-full bg-gray-300 opacity-60"></div>
+              <div className="absolute left-10 bottom-2 w-14 h-9 rounded-full bg-gray-300 opacity-60"></div>
+              <div className="absolute left-20 bottom-0 w-12 h-8 rounded-full bg-gray-300 opacity-60"></div>
             </div>
             
-            {/* Engine flames */}
-            <div className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${currentStageIndex >= 4 ? 'opacity-100' : 'opacity-0'}`}>
-              {/* Main engine flames */}
-              <div className="relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-14 h-12">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-14 animate-pulse bg-orange-500 rounded-b-full opacity-90"></div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-10 animate-pulse bg-yellow-500 rounded-b-full opacity-80"></div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-8 animate-pulse bg-white rounded-b-full opacity-70"></div>
-                </div>
-                
-                {/* SRB flames */}
-                <div className="absolute -left-8 w-4 h-8 animate-pulse bg-orange-400 rounded-b-full opacity-80"></div>
-                <div className="absolute left-6 w-4 h-8 animate-pulse bg-orange-400 rounded-b-full opacity-80"></div>
-              </div>
-            </div>
+            {/* Side booster flames */}
+            <div className="absolute -left-7 -bottom-8 w-4 h-8 animate-pulse bg-orange-400 rounded-b-full opacity-70"></div>
+            <div className="absolute -right-7 -bottom-8 w-4 h-8 animate-pulse bg-orange-400 rounded-b-full opacity-70"></div>
           </div>
         </div>
         
-        {/* Launch text overlay */}
-        <div className={`absolute bottom-2 left-0 right-0 text-center text-white font-bold text-sm transition-opacity duration-500 ${currentStageIndex === 3 ? 'opacity-100' : 'opacity-0'}`}>
-          LAUNCH
+        {/* Stage 5: Liftoff animation (Grow) */}
+        <div 
+          className={`absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out ${
+            currentStageIndex >= 4 
+              ? 'bottom-40 opacity-100' 
+              : 'bottom-12 opacity-100'
+          }`}
+        >
+          {/* Shadow that fades as rocket rises */}
+          <div 
+            className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black rounded-full filter blur-md transition-all duration-1000 ease-out ${
+              currentStageIndex >= 4 ? 'opacity-0 scale-50' : 'opacity-30 scale-100'
+            }`}
+          ></div>
+        </div>
+        
+        {/* Stage labels for animation */}
+        <div className={`absolute bottom-2 left-0 right-0 text-center text-white font-bold text-sm transition-opacity duration-500 ${
+          currentStageIndex === 3 ? 'opacity-100' : 'opacity-0'
+        }`}>
+          LAUNCH SEQUENCE INITIATED
         </div>
       </div>
     </div>
