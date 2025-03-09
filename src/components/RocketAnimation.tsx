@@ -98,51 +98,70 @@ const RocketAnimation = () => {
           {/* Cloud/Smoke base */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-16 bg-white rounded-full transition-opacity duration-700",
-              (currentStage === 'launch' || currentStage === 'grow') ? "opacity-100" : "opacity-0"
+              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-16 bg-white rounded-full opacity-70 transition-opacity duration-700",
+              (currentStage === 'launch' || currentStage === 'grow') ? "opacity-70" : "opacity-0"
             )}
           ></div>
           
-          {/* Main shuttle body */}
+          {/* Space Shuttle Components - Only visible after discover stage */}
           <div 
             className={cn(
-              "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-24 h-48 bg-white rounded-t-full transition-all duration-700 shadow-lg",
-              currentStage !== 'discover' ? "opacity-100" : "opacity-0",
-              currentStage === 'grow' && `translate-y-[-${progress}px]`
+              "transition-all duration-700",
+              currentStage === 'discover' ? "opacity-30" : "opacity-100", 
+              currentStage === 'grow' && `translate-y-[-${progress * 2}px]`
             )}
+            style={{ 
+              transform: currentStage === 'grow' ? `translateY(-${progress * 2}px)` : 'translateY(0)'
+            }}
           >
-            {/* Shuttle windows */}
-            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-10 h-4 bg-gray-800 rounded-full"></div>
-            {/* Shuttle nose cone */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-14 h-10 bg-gray-700 rounded-t-full"></div>
+            {/* Main shuttle body */}
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-24 h-48 bg-white rounded-t-full shadow-lg">
+              {/* Shuttle windows */}
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-10 h-4 bg-gray-800 rounded-full"></div>
+              {/* Shuttle nose cone */}
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-14 h-10 bg-gray-700 rounded-t-full"></div>
+              
+              {/* Wings - appear during strategize */}
+              <div 
+                className={cn(
+                  "absolute top-1/2 left-0 w-16 h-8 bg-gray-200 -translate-x-[60%] skew-y-[20deg] transition-opacity duration-500",
+                  currentStage === 'discover' ? "opacity-0" : "opacity-100"
+                )}
+              ></div>
+              <div 
+                className={cn(
+                  "absolute top-1/2 right-0 w-16 h-8 bg-gray-200 translate-x-[60%] skew-y-[-20deg] transition-opacity duration-500",
+                  currentStage === 'discover' ? "opacity-0" : "opacity-100"
+                )}
+              ></div>
+            </div>
+            
+            {/* External fuel tank - appears during strategize */}
+            <div 
+              className={cn(
+                "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-12 h-44 bg-orange-500 rounded-t-full rounded-b-lg transition-opacity duration-500",
+                currentStage === 'discover' ? "opacity-0" : "opacity-100"
+              )}
+              style={{ zIndex: -1 }}
+            ></div>
+            
+            {/* Solid rocket boosters - appear during define */}
+            <div 
+              className={cn(
+                "absolute bottom-16 left-1/2 flex justify-between transition-opacity duration-500",
+                (currentStage === 'discover' || currentStage === 'strategize') ? "opacity-0" : "opacity-100"
+              )}
+              style={{ width: '70px', transform: 'translateX(-50%)', zIndex: -2 }}
+            >
+              <div className="w-8 h-40 bg-white rounded-t-lg rounded-b-lg"></div>
+              <div className="w-8 h-40 bg-white rounded-t-lg rounded-b-lg"></div>
+            </div>
           </div>
           
-          {/* External fuel tank */}
+          {/* Rocket flames - appear during launch */}
           <div 
             className={cn(
-              "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-12 h-44 bg-red-500 rounded-t-full rounded-b-lg transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' ? "opacity-100" : "opacity-0",
-              currentStage === 'grow' && `translate-y-[-${progress}px]`
-            )}
-          ></div>
-          
-          {/* Solid rocket boosters */}
-          <div 
-            className={cn(
-              "absolute bottom-16 left-1/2 flex justify-between transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' ? "opacity-100" : "opacity-0",
-              currentStage === 'grow' && `translate-y-[-${progress}px]`
-            )}
-            style={{ width: '70px', transform: 'translateX(-50%)' }}
-          >
-            <div className="w-8 h-40 bg-orange-400 rounded-t-lg rounded-b-lg"></div>
-            <div className="w-8 h-40 bg-orange-400 rounded-t-lg rounded-b-lg"></div>
-          </div>
-          
-          {/* Rocket flames */}
-          <div 
-            className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-700",
+              "absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-opacity duration-500",
               (currentStage === 'launch' || currentStage === 'grow') ? "opacity-100" : "opacity-0"
             )}
           >
@@ -162,16 +181,25 @@ const RocketAnimation = () => {
             </div>
           </div>
           
-          {/* Launch pad structure */}
+          {/* Launch pad structure - appears during define */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-60 h-16 transition-all duration-700",
-              currentStage === 'define' || currentStage === 'launch' || currentStage === 'grow' ? "opacity-100" : "opacity-0"
+              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-60 h-16 transition-opacity duration-700",
+              (currentStage === 'discover' || currentStage === 'strategize') ? "opacity-0" : "opacity-100"
             )}
           >
             <div className="absolute bottom-0 left-0 w-12 h-20 border-r-2 border-t-2 border-gray-300"></div>
             <div className="absolute bottom-0 right-0 w-12 h-20 border-l-2 border-t-2 border-gray-300"></div>
           </div>
+          
+          {/* Additional smoke effects during launch */}
+          {(currentStage === 'launch' || currentStage === 'grow') && (
+            <>
+              <div className="absolute bottom-10 left-1/2 transform -translate-x-[60px] w-16 h-8 bg-white rounded-full opacity-50 animate-pulse"></div>
+              <div className="absolute bottom-5 left-1/2 transform -translate-x-[40px] w-20 h-10 bg-white rounded-full opacity-60 animate-pulse" style={{ animationDelay: '300ms' }}></div>
+              <div className="absolute bottom-8 left-1/2 transform translate-x-[30px] w-14 h-7 bg-white rounded-full opacity-40 animate-pulse" style={{ animationDelay: '150ms' }}></div>
+            </>
+          )}
         </div>
       </div>
     </div>
