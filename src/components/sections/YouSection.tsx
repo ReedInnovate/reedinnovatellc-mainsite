@@ -6,7 +6,7 @@ const YouSection = () => {
     <AnimatedSection id="you" className="bg-gray-50 py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="section-title">You Need Help Launching Products</h2>
+          <h2 className="section-title">You're launching products</h2>
           <p className="section-description mx-auto text-center">
             You're looking for a driving force behind getting a product to market and keeping it there.
           </p>
