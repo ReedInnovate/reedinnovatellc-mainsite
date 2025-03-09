@@ -154,34 +154,39 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Product Strategy",
-                description: "Define clear goals and roadmaps to position your product for success in the market.",
+                title: "Messaging and Positioning",
+                description: "Craft compelling narratives that highlight your product's unique value proposition, and answer important questions like: Who's the product for? What unique problems does it solve? Why's it different to the competition? How does it benefit our audience?",
                 delay: 0
               },
               {
-                title: "Go-to-Market Planning",
-                description: "Create comprehensive strategies for introducing or relaunching products to maximize impact.",
+                title: "Product Launch Management",
+                description: "Whether a small-scale feature update or a full-blown new product, coordinate cross-functional launch efforts to ensure successful product introductions.",
                 delay: 100
               },
               {
-                title: "Messaging & Positioning",
-                description: "Craft compelling narratives that highlight your product's unique value proposition.",
+                title: "Go-to-Market Strategy",
+                description: "Create comprehensive strategies for introducing or relaunching products to maximize impact.",
                 delay: 200
               },
               {
-                title: "Market Research",
-                description: "Gain data-driven insights about your target audience, competitors, and market trends.",
+                title: "Customer & Market Research",
+                description: "Collect data-driven insights about your target audience, competitors, and market trends before, during, and after any type of launch.",
                 delay: 300
               },
               {
-                title: "Product Launch Management",
-                description: "Coordinate cross-functional efforts to ensure successful product introductions.",
+                title: "Product Strategy & Roadmap",
+                description: "Define clear goals and roadmaps to position your product for success in the market using data-driven customer intel.",
                 delay: 400
               },
               {
                 title: "Growth Strategy",
                 description: "Identify opportunities to scale adoption and expand your product's market presence.",
                 delay: 500
+              },
+              {
+                title: "Content Marketing & Automation",
+                description: "Creating sales collateral: Depending on the type of launch, demo videos, battlecards, new webpages, sales training, and more. Reporting on product marketing success: Number of daily, active, and/or monthly users, Overall revenue goals, Win rates, Usage of product marketing assets, Sales confidence, Marketing-qualified leads (MQLs) and sales-qualified leads (SQLs), and Customer satisfaction. Content marketing: Anything from blogs, whitepapers, and case studies to social media posts, product guides, sales one-pagers, and more. Managing the website: Making sure new features and products are reflected, messaging elements are up-to-date, and everything is optimized. Product roadmap planning: Shaping roadmaps using data-driven customer intel. Onboarding customers: Ensuring everyone gets off to a good start.",
+                delay: 600
               }
             ].map((service, index) => (
               <div 
