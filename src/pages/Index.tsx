@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import AnimatedSection from '@/components/AnimatedSection';
@@ -48,7 +47,7 @@ const Index = () => {
               <div className="relative">
                 <div className="flex justify-center items-center animate-float">
                   <img 
-                    src="/lovable-uploads/afb4263b-1578-4b67-a40b-038e8c0500aa.png" 
+                    src="/lovable-uploads/85e56610-59b3-4288-a019-b649c29ab134.png" 
                     alt="Rocket launching" 
                     className="w-1/2 h-auto object-contain"
                   />
@@ -285,4 +284,3 @@ const Index = () => {
 };
 
 export default Index;
-
