@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import Button from './Button';
@@ -14,7 +13,7 @@ interface FormData {
 // EmailJS service configuration
 const EMAILJS_SERVICE_ID = 'service_4nnptai'; 
 const EMAILJS_TEMPLATE_ID = 'template_ou5no0k'; 
-const EMAILJS_USER_ID = 'hunter@reedinnovate.com'; 
+const EMAILJS_USER_ID = 'ZodjuJtNH_WMTc0SY\\'; 
 
 const ContactForm = () => {
   const { toast } = useToast();
