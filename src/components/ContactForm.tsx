@@ -12,9 +12,9 @@ interface FormData {
 }
 
 // EmailJS service configuration
-const EMAILJS_SERVICE_ID = 'default_service'; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = 'template_default'; // Replace with your EmailJS template ID
-const EMAILJS_USER_ID = 'user_xxxxxxxxx'; // Replace with your EmailJS user ID
+const EMAILJS_SERVICE_ID = 'service_4nnptai'; 
+const EMAILJS_TEMPLATE_ID = 'template_ou5no0k'; 
+const EMAILJS_USER_ID = 'hunter@reedinnovate.com'; 
 
 const ContactForm = () => {
   const { toast } = useToast();
