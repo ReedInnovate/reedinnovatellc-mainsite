@@ -38,7 +38,7 @@ const RocketAnimation = () => {
   
   useEffect(() => {
     const stageIndex = stages.findIndex(s => s.title === currentStage);
-    // Speed up by 25% - changing interval from 100ms to 75ms
+    // Speed up by another 25% - changing interval from 75ms to 56ms
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -49,7 +49,7 @@ const RocketAnimation = () => {
         }
         return prev + 1;
       });
-    }, 75); // Reduced from 100ms to 75ms (25% faster)
+    }, 56); // Reduced from 75ms to 56ms (another 25% faster)
 
     return () => clearInterval(interval);
   }, [currentStage]);
@@ -156,13 +156,6 @@ const RocketAnimation = () => {
                   <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-10 h-3 bg-gradient-to-r from-sky-400 via-sky-300 to-sky-400 rounded-full"></div>
                 </div>
                 
-                {/* NASA logo */}
-                <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600">
-                  <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center">
-                    <div className="text-[8px] font-bold text-blue-600">NASA</div>
-                  </div>
-                </div>
-                
                 {/* Control surfaces */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-22 h-8 flex justify-between items-center px-1">
                   <div className="w-4 h-3 bg-gray-700 rounded-sm"></div>
@@ -170,10 +163,10 @@ const RocketAnimation = () => {
                 </div>
               </div>
               
-              {/* Shuttle wings - enhanced with more details */}
+              {/* Small wings added to the shuttle */}
               <div 
                 className={cn(
-                  "absolute top-1/2 left-0 w-18 h-10 -translate-x-[60%] skew-y-[20deg] transition-opacity duration-500",
+                  "absolute top-1/2 left-0 w-10 h-6 -translate-x-[80%] skew-y-[15deg] transition-opacity duration-500",
                   currentStage === 'discover' ? "opacity-0" : "opacity-100"
                 )}
               >
@@ -184,7 +177,7 @@ const RocketAnimation = () => {
               
               <div 
                 className={cn(
-                  "absolute top-1/2 right-0 w-18 h-10 translate-x-[60%] skew-y-[-20deg] transition-opacity duration-500",
+                  "absolute top-1/2 right-0 w-10 h-6 translate-x-[80%] skew-y-[-15deg] transition-opacity duration-500",
                   currentStage === 'discover' ? "opacity-0" : "opacity-100"
                 )}
               >
@@ -261,12 +254,19 @@ const RocketAnimation = () => {
             </div>
           </div>
           
-          {/* Enhanced rocket flames - appear during launch */}
+          {/* Enhanced rocket flames that follow the rocket during grow stage */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-opacity duration-500",
+              "absolute transition-all duration-700",
               (currentStage === 'launch' || currentStage === 'grow') ? "opacity-100" : "opacity-0"
             )}
+            style={{ 
+              bottom: currentStage === 'grow' ? 'auto' : '0',
+              transform: currentStage === 'grow' 
+                ? `translate(-50%, ${-progress * 2 + 100}px)` 
+                : 'translate(-50%, 0)',
+              left: '50%'
+            }}
           >
             {/* Center engine flame - more vibrant with multiple layers */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-28">
@@ -288,11 +288,15 @@ const RocketAnimation = () => {
             </div>
           </div>
           
-          {/* Launch pad structure - appears during define - enhanced */}
+          {/* Launch pad structure - appears during define and disappears during grow */}
           <div 
             className={cn(
               "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-16 transition-opacity duration-700",
-              (currentStage === 'discover' || currentStage === 'strategize') ? "opacity-0" : "opacity-100"
+              (currentStage === 'discover' || currentStage === 'strategize') 
+                ? "opacity-0" 
+                : currentStage === 'grow' 
+                  ? "opacity-0" 
+                  : "opacity-100"
             )}
           >
             {/* Left tower */}
