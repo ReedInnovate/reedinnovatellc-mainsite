@@ -93,104 +93,85 @@ const RocketAnimation = () => {
       </div>
       
       {/* Animation side - 50% width */}
-      <div className="w-full md:w-1/2 bg-gradient-to-b from-blue-50 to-sky-100 relative overflow-hidden flex items-center justify-center">
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[100px] h-[300px]">
-          {/* Rocket parts - Fuselage */}
+      <div className="w-full md:w-1/2 bg-gradient-to-b from-blue-500 to-blue-700 relative overflow-hidden flex items-center justify-center">
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          {/* Cloud/Smoke base */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-60 bg-white rounded-t-full border-2 border-gray-300 transition-all duration-700",
-              currentStage !== 'discover' && "translate-y-0",
-              currentStage === 'discover' && progress > 50 && "translate-y-0",
-              currentStage === 'discover' && progress <= 50 && "translate-y-[100px]",
+              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-16 bg-white rounded-full transition-opacity duration-700",
+              (currentStage === 'launch' || currentStage === 'grow') ? "opacity-100" : "opacity-0"
             )}
-          />
+          ></div>
           
-          {/* Rocket parts - Boosters & Nose cone */}
+          {/* Main shuttle body */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-24 flex justify-between transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' && "opacity-100",
-              currentStage === 'strategize' && progress > 50 && "opacity-100",
-              (currentStage === 'discover' || (currentStage === 'strategize' && progress <= 50)) && "opacity-0"
+              "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-24 h-48 bg-white rounded-t-full transition-all duration-700 shadow-lg",
+              currentStage !== 'discover' ? "opacity-100" : "opacity-0",
+              currentStage === 'grow' && `translate-y-[-${progress}px]`
             )}
           >
-            <div className="w-5 h-40 bg-orange-500 rounded-b-lg rounded-t-sm -mb-[50px]"></div>
-            <div className="w-5 h-40 bg-orange-500 rounded-b-lg rounded-t-sm -mb-[50px]"></div>
+            {/* Shuttle windows */}
+            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-10 h-4 bg-gray-800 rounded-full"></div>
+            {/* Shuttle nose cone */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-14 h-10 bg-gray-700 rounded-t-full"></div>
           </div>
           
+          {/* External fuel tank */}
           <div 
             className={cn(
-              "absolute top-0 left-1/2 transform -translate-x-1/2 w-10 h-20 bg-gray-300 rounded-t-full transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' && "opacity-100",
-              currentStage === 'strategize' && progress > 50 && "opacity-100",
-              (currentStage === 'discover' || (currentStage === 'strategize' && progress <= 50)) && "opacity-0"
+              "absolute bottom-16 left-1/2 transform -translate-x-1/2 w-12 h-44 bg-red-500 rounded-t-full rounded-b-lg transition-all duration-700",
+              currentStage !== 'discover' && currentStage !== 'strategize' ? "opacity-100" : "opacity-0",
+              currentStage === 'grow' && `translate-y-[-${progress}px]`
             )}
-          />
+          ></div>
           
-          {/* Rocket parts - Winglets, launch tower */}
+          {/* Solid rocket boosters */}
           <div 
             className={cn(
-              "absolute bottom-20 left-1/2 transform -translate-x-1/2 transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' && currentStage !== 'define' && "opacity-100",
-              currentStage === 'define' && progress > 50 && "opacity-100",
-              (currentStage === 'discover' || currentStage === 'strategize' || (currentStage === 'define' && progress <= 50)) && "opacity-0"
+              "absolute bottom-16 left-1/2 flex justify-between transition-all duration-700",
+              currentStage !== 'discover' && currentStage !== 'strategize' ? "opacity-100" : "opacity-0",
+              currentStage === 'grow' && `translate-y-[-${progress}px]`
             )}
+            style={{ width: '70px', transform: 'translateX(-50%)' }}
           >
-            <div className="w-24 h-10 flex justify-between">
-              <div className="w-8 h-10 bg-gray-400 skew-x-[30deg] -mr-2"></div>
-              <div className="w-8 h-10 bg-gray-400 skew-x-[-30deg] -ml-2"></div>
-            </div>
+            <div className="w-8 h-40 bg-orange-400 rounded-t-lg rounded-b-lg"></div>
+            <div className="w-8 h-40 bg-orange-400 rounded-t-lg rounded-b-lg"></div>
           </div>
           
-          <div 
-            className={cn(
-              "absolute bottom-0 -left-40 h-80 w-20 border-r-2 border-t-2 border-gray-400 transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' && currentStage !== 'define' && "opacity-100",
-              currentStage === 'define' && progress > 50 && "opacity-100",
-              (currentStage === 'discover' || currentStage === 'strategize' || (currentStage === 'define' && progress <= 50)) && "opacity-0"
-            )}
-          />
-          
-          {/* Rocket parts - Engines on */}
+          {/* Rocket flames */}
           <div 
             className={cn(
               "absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' && currentStage !== 'define' && currentStage !== 'launch' && "opacity-100",
-              currentStage === 'launch' && progress > 20 && "opacity-100",
-              (currentStage === 'discover' || currentStage === 'strategize' || currentStage === 'define' || (currentStage === 'launch' && progress <= 20)) && "opacity-0"
+              (currentStage === 'launch' || currentStage === 'grow') ? "opacity-100" : "opacity-0"
             )}
           >
-            <div 
-              className={cn(
-                "w-16 -mb-10 flex justify-center transition-opacity duration-300",
-                (currentStage === 'launch' || currentStage === 'grow') && "opacity-100",
-                currentStage !== 'launch' && currentStage !== 'grow' && "opacity-0"
-              )}
-            >
-              <div className="fire-animation"></div>
+            {/* Center engine flame */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-20">
+              <div className="flame-center"></div>
+            </div>
+            
+            {/* Left booster flame */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-[35px] w-6 h-16">
+              <div className="flame-side"></div>
+            </div>
+            
+            {/* Right booster flame */}
+            <div className="absolute bottom-0 left-1/2 transform translate-x-[15px] w-6 h-16">
+              <div className="flame-side"></div>
             </div>
           </div>
           
-          {/* Smoke */}
+          {/* Launch pad structure */}
           <div 
             className={cn(
-              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-40 transition-all duration-700",
-              currentStage !== 'discover' && currentStage !== 'strategize' && currentStage !== 'define' && currentStage !== 'launch' && "opacity-100",
-              currentStage === 'launch' && progress > 50 && "opacity-100",
-              (currentStage === 'discover' || currentStage === 'strategize' || currentStage === 'define' || (currentStage === 'launch' && progress <= 50)) && "opacity-0"
+              "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-60 h-16 transition-all duration-700",
+              currentStage === 'define' || currentStage === 'launch' || currentStage === 'grow' ? "opacity-100" : "opacity-0"
             )}
           >
-            <div className="smoke-cloud"></div>
+            <div className="absolute bottom-0 left-0 w-12 h-20 border-r-2 border-t-2 border-gray-300"></div>
+            <div className="absolute bottom-0 right-0 w-12 h-20 border-l-2 border-t-2 border-gray-300"></div>
           </div>
-          
-          {/* Moving up animation */}
-          <div 
-            className={cn(
-              "absolute left-1/2 transform -translate-x-1/2 transition-all duration-1000 w-full h-full",
-              currentStage === 'grow' && `translate-y-[-${progress}%]`,
-              currentStage !== 'grow' && "translate-y-0"
-            )}
-          />
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,28 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Flame animations for rocket */
+.flame-center {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff9d00, #ff0000);
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 0 10px 5px rgba(255, 157, 0, 0.5);
+  animation: flicker 0.5s infinite alternate;
+}
+
+.flame-side {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffcf8c, #ff9d00);
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 0 8px 4px rgba(255, 207, 140, 0.5);
+  animation: flicker 0.7s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { height: 90%; opacity: 0.8; }
+  100% { height: 100%; opacity: 1; }
 }
