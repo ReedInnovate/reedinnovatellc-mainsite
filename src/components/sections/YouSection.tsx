@@ -71,43 +71,52 @@ const YouSection = () => {
           <div className="order-2 lg:order-1">
             <div className="h-[400px] w-full border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white">
               <div className="flex flex-col h-full p-6">
-                <h3 className="text-2xl font-medium mb-4">Go-To-Market Journey</h3>
+                <h3 className="text-2xl font-bold mb-6">Go-To-Market Journey</h3>
                 
-                <div className="flex flex-col gap-6 flex-grow">
+                {/* Current Stage Featured Display */}
+                <div className="mb-8">
+                  <h4 className="text-2xl font-medium capitalize text-primary mb-3">
+                    {currentStage}
+                  </h4>
+                  <p className="text-lg text-gray-700">
+                    {stageInfo.description}
+                  </p>
+                  <div className="h-2 bg-gray-100 rounded-full mt-4 overflow-hidden">
+                    <div 
+                      className="h-full bg-primary transition-all duration-200"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Stage Indicators */}
+                <div className="flex justify-between items-center mt-auto">
                   {stages.map(stage => (
-                    <div key={stage.title} className="flex flex-col">
-                      <div className="flex items-center gap-3 mb-1">
-                        <div 
-                          className={cn(
-                            "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0",
-                            stage.title === currentStage ? "bg-primary" : "bg-gray-200"
-                          )}
-                        >
-                          {stage.title === currentStage && (
-                            <div className="w-2 h-2 bg-white rounded-full" />
-                          )}
-                        </div>
-                        <span 
-                          className={cn(
-                            "text-lg capitalize font-medium",
-                            stage.title === currentStage ? "text-primary" : "text-gray-500"
-                          )}
-                        >
-                          {stage.title}
-                        </span>
-                      </div>
-                      
-                      {stage.title === currentStage && (
-                        <div className="ml-8 mt-1">
-                          <p className="text-gray-700">{stage.description}</p>
-                          <div className="h-1 bg-gray-100 rounded-full mt-3 overflow-hidden">
-                            <div 
-                              className="h-full bg-primary transition-all duration-200"
-                              style={{ width: `${progress}%` }}
-                            />
-                          </div>
-                        </div>
+                    <div 
+                      key={stage.title} 
+                      className={cn(
+                        "flex flex-col items-center transition-all duration-300",
+                        stage.title === currentStage ? "scale-110" : "opacity-60"
                       )}
+                    >
+                      <div 
+                        className={cn(
+                          "w-6 h-6 rounded-full flex items-center justify-center mb-2",
+                          stage.title === currentStage ? "bg-primary" : "bg-gray-200"
+                        )}
+                      >
+                        {stage.title === currentStage && (
+                          <div className="w-2 h-2 bg-white rounded-full" />
+                        )}
+                      </div>
+                      <span 
+                        className={cn(
+                          "text-sm font-medium capitalize",
+                          stage.title === currentStage ? "text-primary" : "text-gray-500"
+                        )}
+                      >
+                        {stage.title}
+                      </span>
                     </div>
                   ))}
                 </div>
