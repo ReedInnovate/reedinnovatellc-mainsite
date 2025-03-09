@@ -15,6 +15,10 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
+				'sm': '640px',
+				'md': '768px',
+				'lg': '1024px',
+				'xl': '1280px',
 				'2xl': '1400px'
 			}
 		},
@@ -110,7 +114,14 @@ export default {
 				'fade-in-left': 'fade-in-left 0.7s ease-out forwards',
 				'fade-in-right': 'fade-in-right 0.7s ease-out forwards',
 				'float': 'float 3s ease-in-out infinite'
-			}
+			},
+			height: {
+				screen: '100vh',
+				'screen-small': 'calc(var(--vh, 1vh) * 100)',
+			},
+			minHeight: {
+				'screen-small': 'calc(var(--vh, 1vh) * 100)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

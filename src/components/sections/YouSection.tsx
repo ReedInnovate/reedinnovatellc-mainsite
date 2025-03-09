@@ -58,30 +58,30 @@ const YouSection = () => {
   const stageInfo = stages.find(s => s.title === currentStage) || stages[0];
 
   return (
-    <AnimatedSection id="you" className="bg-gray-50 py-24">
+    <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="section-title">You're Launching Products</h2>
-          <p className="section-description mx-auto text-center">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="section-title text-3xl md:text-4xl">You're Launching Products</h2>
+          <p className="section-description mx-auto text-center text-sm md:text-base">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <div className="h-[300px] w-full max-w-[75%] mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white">
-              <div className="flex flex-col h-full p-5">
-                <h3 className="text-xl font-bold mb-4">Go-To-Market Journey</h3>
+            <div className="h-auto md:h-[300px] w-full mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white p-4 md:p-5">
+              <div className="flex flex-col h-full">
+                <h3 className="text-lg md:text-xl font-bold mb-4">Go-To-Market Journey</h3>
                 
                 {/* Current Stage Featured Display */}
                 <div className="mb-6">
-                  <h4 className="text-xl font-medium capitalize text-primary mb-2">
+                  <h4 className="text-lg md:text-xl font-medium capitalize text-primary mb-2">
                     {currentStage}
                   </h4>
-                  <p className="text-base text-gray-700">
+                  <p className="text-sm md:text-base text-gray-700">
                     {stageInfo.description}
                   </p>
-                  <div className="h-3 bg-gray-100 rounded-full mt-3 overflow-hidden relative">
+                  <div className="h-3 md:h-4 bg-gray-100 rounded-full mt-3 overflow-hidden relative">
                     <div 
                       className="h-full bg-primary transition-all duration-200"
                       style={{ width: `${progress}%` }}
@@ -92,8 +92,8 @@ const YouSection = () => {
                       style={{ 
                         left: `${progress}%`, 
                         transform: `translateX(-50%) translateY(-50%)`,
-                        height: '36px',
-                        width: '30px'
+                        height: '30px',
+                        width: '24px'
                       }}
                     >
                       <img 
@@ -117,17 +117,17 @@ const YouSection = () => {
                     >
                       <div 
                         className={cn(
-                          "w-5 h-5 rounded-full flex items-center justify-center mb-1",
+                          "w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center mb-1",
                           stage.title === currentStage ? "bg-primary" : "bg-gray-200"
                         )}
                       >
                         {stage.title === currentStage && (
-                          <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                          <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-white rounded-full" />
                         )}
                       </div>
                       <span 
                         className={cn(
-                          "text-xs font-medium capitalize",
+                          "text-[0.65rem] md:text-xs font-medium capitalize",
                           stage.title === currentStage ? "text-primary" : "text-gray-500"
                         )}
                       >
@@ -139,9 +139,9 @@ const YouSection = () => {
               </div>
             </div>
           </div>
-          <div className="space-y-6 order-1 lg:order-2">
-            <h3 className="text-3xl font-light">What You Need</h3>
-            <ul className="space-y-4">
+          <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
+            <h3 className="text-2xl md:text-3xl font-light">What You Need</h3>
+            <ul className="space-y-3 md:space-y-4 text-sm md:text-base">
               {[
                 "Strategic product positioning in competitive markets",
                 "Compelling messaging that resonates with your target audience",
@@ -150,7 +150,7 @@ const YouSection = () => {
                 "Data-driven insights to optimize your product lifecycle"
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5 flex-shrink-0">
+                  <span className="inline-flex items-center justify-center h-5 w-5 md:h-6 md:w-6 rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5 flex-shrink-0">
                     ✓
                   </span>
                   <span>{item}</span>
