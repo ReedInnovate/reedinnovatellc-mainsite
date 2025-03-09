@@ -71,11 +71,11 @@ const YouSection = () => {
           <div className="order-2 lg:order-1">
             <div className="h-auto md:h-[300px] w-full mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white p-4 md:p-5">
               <div className="flex flex-col h-full">
-                <h3 className="text-lg md:text-xl font-bold mb-4">Go-To-Market Journey</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-4">Go-To-Market Journey</h3>
                 
                 {/* Current Stage Featured Display */}
                 <div className="mb-6">
-                  <h4 className="text-lg md:text-xl font-medium capitalize text-primary mb-2">
+                  <h4 className="text-xl md:text-2xl font-medium capitalize text-primary mb-2">
                     {currentStage}
                   </h4>
                   <p className="text-sm md:text-base text-gray-700">
@@ -127,7 +127,7 @@ const YouSection = () => {
                       </div>
                       <span 
                         className={cn(
-                          "text-[0.65rem] md:text-xs font-medium capitalize",
+                          "text-xs md:text-sm font-medium capitalize",
                           stage.title === currentStage ? "text-primary" : "text-gray-500"
                         )}
                       >

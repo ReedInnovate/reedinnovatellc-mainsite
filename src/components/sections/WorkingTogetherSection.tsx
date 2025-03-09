@@ -90,7 +90,7 @@ const WorkingTogetherSection = () => {
               <div className="h-10 w-10 md:h-12 md:w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-3 md:mb-4">
                 {service.icon}
               </div>
-              <h3 className="text-lg md:text-xl font-medium mb-2 md:mb-3">{service.title}</h3>
+              <h3 className="text-xl md:text-2xl font-medium mb-2 md:mb-3">{service.title}</h3>
               <p className="text-gray-600 text-sm md:text-base">{service.description}</p>
             </div>
           ))}
