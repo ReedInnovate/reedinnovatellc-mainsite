@@ -1,6 +1,5 @@
 
 import AnimatedSection from '@/components/AnimatedSection';
-import ContactForm from '@/components/ContactForm';
 
 const ContactSection = () => {
   return (
@@ -11,12 +10,17 @@ const ContactSection = () => {
           <p className="section-description mx-auto">
             Let's discuss how I can help you achieve your goals.
           </p>
-          <p className="text-sm text-gray-500 mt-4">
-            All messages will be sent directly to hunter@reedinnovate.com
-          </p>
         </div>
         
-        <ContactForm />
+        <div className="flex justify-center w-full">
+          <iframe 
+            width="900" 
+            height="600" 
+            src="https://app.smartsheet.com/b/form/a685c32327c946c085f39484723c9ce9"
+            className="border-0 w-full max-w-3xl"
+            title="Contact Form"
+          ></iframe>
+        </div>
       </div>
     </AnimatedSection>
   );
