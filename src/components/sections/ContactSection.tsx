@@ -8,7 +8,7 @@ const ContactSection = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="section-title">Contact Me</h2>
           <p className="section-description mx-auto">
-            Let's discuss how I can help you achieve your goals.
+            Let's connect and discuss how I can help you achieve your goals. All responses are sent to hunter@reedinnovate.com.
           </p>
         </div>
         
