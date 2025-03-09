@@ -15,7 +15,7 @@ const ContactSection = () => {
         <div className="flex justify-center w-full">
           <iframe 
             width="900" 
-            height="600" 
+            height="800" 
             src="https://app.smartsheet.com/b/form/a685c32327c946c085f39484723c9ce9"
             className="border-0 w-full max-w-3xl"
             title="Contact Form"
