@@ -50,8 +50,8 @@ const WorkingTogetherSection = () => {
   return <AnimatedSection id="together" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
-          <h2 className="section-title md:text-4xl text-5xl">Let's work together</h2>
-          <p className="section-description mx-auto md:text-base text-lg">
+          <h2 className="section-title md:text-4xl text-4xl text-left">Let's work together</h2>
+          <p className="section-description mx-auto md:text-base text-base text-left">
             I can help amplify your product launch—no matter where you are in your product's lifecycle. Whether you need full lifecycle management or targeted support in a specific area, I'm here to drive impact and ensure success.
           </p>
         </div>

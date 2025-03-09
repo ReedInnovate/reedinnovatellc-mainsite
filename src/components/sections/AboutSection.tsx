@@ -6,22 +6,22 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
-            <h2 className="section-title md:text-4xl lg:text-left text-5xl text-left">About Hunter Reed</h2>
-            <p className="text-gray-600 leading-relaxed text-sm font-normal md:text-lg">
+            <h2 className="section-title md:text-4xl lg:text-left text-left text-4xl font-normal">About Hunter Reed</h2>
+            <p className="text-gray-600 leading-relaxed font-normal md:text-lg text-base">
               Motivated self-starter with 7+ years of B2B SaaS experience launching disruptive products and shaping market trends. Proven track record of merging innovative solutions with effective go-to-market strategies, driving measurable business impact for over 2M users and influencing $10M+ in annual recurring revenue.
             </p>
-            <p className="text-gray-600 leading-relaxed text-sm font-normal md:text-lg">
+            <p className="text-gray-600 leading-relaxed font-normal md:text-lg text-base">
               Skilled at managing product lifecycles, leading cross-functional teams, and leveraging customer insights to optimize message and positioning.
             </p>
             <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
               <a href="https://www.linkedin.com/in/hunterjreed" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
-                <Button variant="outline" className="flex items-center gap-2 text-base">
+                <Button variant="outline" className="flex items-center gap-2 text-sm">
                   <Linkedin size={16} />
                   Connect on LinkedIn
                 </Button>
               </a>
               <a href="mailto:hunter@reedinnovate.com" className="inline-flex items-center">
-                <Button variant="outline" className="flex items-center gap-2 text-base">
+                <Button variant="outline" className="flex items-center gap-2 text-sm">
                   <Mail size={16} />
                   Email Me
                 </Button>

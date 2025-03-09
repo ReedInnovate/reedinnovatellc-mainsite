@@ -45,8 +45,8 @@ const YouSection = () => {
   return <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="section-title md:text-4xl text-5xl font-normal">You're Launching Products</h2>
-          <p className="section-description mx-auto text-center md:text-base text-lg font-normal">
+          <h2 className="section-title md:text-4xl font-normal text-4xl text-left">You're Launching Products</h2>
+          <p className="section-description mx-auto md:text-base font-normal text-base text-left">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
@@ -55,7 +55,7 @@ const YouSection = () => {
           <div className="order-2 lg:order-1">
             <div className="h-auto md:h-[300px] w-full mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white p-4 md:p-5">
               <div className="flex flex-col h-full">
-                <h3 className="text-lg mb-4 font-normal md:text-3xl">Go-To-Market Journey</h3>
+                <h3 className="mb-4 font-normal md:text-3xl text-xl">Go-To-Market Journey</h3>
                 
                 {/* Current Stage Featured Display */}
                 <div className="mb-6">
@@ -96,13 +96,13 @@ const YouSection = () => {
             </div>
           </div>
           <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-            <h3 className="text-2xl font-normal md:text-3xl">What You Need</h3>
+            <h3 className="text-2xl font-normal md:text-3xl text-left">What You Need</h3>
             <ul className="space-y-3 md:space-y-4 text-sm md:text-base">
               {["Strategic product positioning in competitive markets", "Compelling messaging that resonates with your target audience", "Effective go-to-market strategies that drive adoption", "Customer-focused approach to product development and marketing", "Data-driven insights to optimize your product lifecycle"].map((item, index) => <li key={index} className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 md:h-6 md:w-6 rounded-full bg-blue-100 text-blue-600 mr-3 mt-0.5 flex-shrink-0">
                     ✓
                   </span>
-                  <span className="text-lg font-normal">{item}</span>
+                  <span className="font-normal text-base text-left">{item}</span>
                 </li>)}
             </ul>
           </div>
