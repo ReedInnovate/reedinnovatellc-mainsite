@@ -9,14 +9,14 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
-            <h2 className="section-title text-4xl md:text-5xl text-center lg:text-left">About Hunter Reed</h2>
+            <h2 className="section-title text-4xl md:text-5xl text-left md:text-center lg:text-left">About Hunter Reed</h2>
             <p className="text-gray-600 leading-relaxed text-lg md:text-xl">
               Motivated self-starter with 7+ years of B2B SaaS experience launching disruptive products and shaping market trends. Proven track record of merging innovative solutions with effective go-to-market strategies, driving measurable business impact for over 2M users and influencing $10M+ in annual recurring revenue.
             </p>
             <p className="text-gray-600 leading-relaxed text-lg md:text-xl">
               Skilled at managing product lifecycles, leading cross-functional teams, and leveraging customer insights to optimize message and positioning.
             </p>
-            <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
+            <div className="pt-4 flex flex-wrap justify-start lg:justify-start gap-4">
               <a 
                 href="https://www.linkedin.com/in/hunterjreed" 
                 target="_blank" 
