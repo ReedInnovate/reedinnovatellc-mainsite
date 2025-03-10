@@ -71,12 +71,19 @@
   }
   
   .section-title {
-    @apply font-light mb-3 md:mb-4 opacity-0 animate-fade-in;
+    @apply font-light mb-3 md:mb-4 opacity-0 animate-fade-in text-left md:text-center;
   }
   
   .section-description {
-    @apply text-gray-600 max-w-3xl opacity-0 animate-fade-in;
+    @apply text-gray-600 max-w-3xl opacity-0 animate-fade-in text-left md:text-center;
     animation-delay: 200ms;
+  }
+  
+  @media (max-width: 767px) {
+    .section-title, 
+    .section-description {
+      text-align: left;
+    }
   }
   
   .button {

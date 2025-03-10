@@ -37,7 +37,13 @@ const Index = () => {
       preloadComponents();
     }, 1000);
     
-    return () => clearTimeout(timeoutId);
+    // Add a class to the body for mobile-specific styling
+    document.body.classList.add('mobile-text-left');
+    
+    return () => {
+      clearTimeout(timeoutId);
+      document.body.classList.remove('mobile-text-left');
+    };
   }, []);
 
   return (

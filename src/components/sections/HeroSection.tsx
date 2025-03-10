@@ -8,8 +8,8 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 md:px-6 pt-16 md:pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="space-y-4 md:space-y-6 text-left lg:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight animate-fade-in-left">
+          <div className="space-y-4 md:space-y-6 text-left">
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight animate-fade-in-left">
               From Liftoff <br />to Orbit.
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-lg lg:mx-0 animate-fade-in-left" style={{ animationDelay: '200ms' }}>
