@@ -60,6 +60,13 @@ const YouSection = () => {
   return (
     <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
+        <div className="text-left md:text-center mb-10 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-light mb-4">You're launching products</h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            And you're looking for a driving force behind getting products to market and keeping them there.
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-2 lg:order-1">
             <div className="h-auto md:h-[300px] w-full mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white p-4 md:p-5">
