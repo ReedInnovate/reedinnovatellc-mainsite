@@ -1,4 +1,3 @@
-
 import AnimatedSection from '@/components/AnimatedSection';
 import { 
   Search, 
@@ -73,9 +72,9 @@ const WorkingTogetherSection = () => {
   return (
     <AnimatedSection id="together" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
+        <div className="max-w-3xl mx-auto text-left md:text-center mb-10 md:mb-16">
           <h2 className="section-title text-4xl md:text-5xl">Let's work together</h2>
-          <p className="section-description mx-auto text-lg md:text-xl">
+          <p className="section-description mx-0 md:mx-auto text-lg md:text-xl">
             I can help amplify your product launch—no matter where you are in your product's lifecycle. Whether you need full lifecycle management or targeted support in a specific area, I'm here to drive impact and ensure success.
           </p>
         </div>
