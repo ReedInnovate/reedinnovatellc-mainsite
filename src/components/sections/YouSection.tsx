@@ -1,3 +1,4 @@
+
 import AnimatedSection from '@/components/AnimatedSection';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -46,7 +47,7 @@ const YouSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-left md:text-center mb-10 md:mb-16">
           <h2 className="section-title text-4xl md:text-5xl">You're Launching Products</h2>
-          <p className="section-description text-center md:text-left text-lg md:text-xl">
+          <p className="section-description text-center text-lg md:text-xl lg:text-2xl">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
