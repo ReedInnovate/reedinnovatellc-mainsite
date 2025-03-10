@@ -140,7 +140,7 @@ const YouSection = () => {
             </div>
           </div>
           <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-            <h3 className="text-3xl md:text-4xl font-light">What You Need</h3>
+            <h3 className="text-3xl md:text-4xl font-light">You Need</h3>
             <ul className="space-y-3 md:space-y-4 text-lg md:text-xl">
               {[
                 "Strategic product positioning in competitive markets",
