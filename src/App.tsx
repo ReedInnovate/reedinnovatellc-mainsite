@@ -22,6 +22,9 @@ const queryClient = new QueryClient({
 const App = () => {
   // Set correct viewport height for mobile browsers and optimize initial load
   useEffect(() => {
+    // Update document title to match the new branding
+    document.title = 'Product Marketing Consulting';
+    
     // Add preconnect for external domains
     const addPreconnect = (url: string) => {
       const link = document.createElement('link');
