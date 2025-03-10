@@ -49,7 +49,7 @@ const NavBar = () => {
         <ul className="hidden md:flex space-x-6 items-center">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a href={link.href} className="nav-link">
+              <a href={link.href} className="nav-link text-lg">
                 {link.name}
               </a>
             </li>
