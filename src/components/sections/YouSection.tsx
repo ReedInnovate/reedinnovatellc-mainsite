@@ -60,9 +60,9 @@ const YouSection = () => {
   return (
     <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-left md:text-center mb-10 md:mb-16">
           <h2 className="section-title text-4xl md:text-5xl">You're Launching Products</h2>
-          <p className="section-description mx-auto text-center text-lg md:text-xl">
+          <p className="section-description text-left md:text-center text-lg md:text-xl">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
@@ -140,7 +140,7 @@ const YouSection = () => {
             </div>
           </div>
           <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-            <h3 className="text-3xl md:text-4xl font-light">What You Need</h3>
+            <h3 className="text-3xl md:text-4xl font-light">You Need</h3>
             <ul className="space-y-3 md:space-y-4 text-lg md:text-xl">
               {[
                 "Strategic product positioning in competitive markets",
