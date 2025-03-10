@@ -31,9 +31,9 @@ const ContactSection = () => {
   return (
     <AnimatedSection id="contact" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-left md:text-center mb-8 md:mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-16">
           <h2 className="section-title text-4xl md:text-5xl">Contact Me</h2>
-          <p className="section-description text-left md:text-center mx-auto text-lg md:text-xl">
+          <p className="section-description mx-auto text-lg md:text-xl">
             Let's connect and discuss how I can help you achieve your goals. All responses are sent to hunter@reedinnovate.com.
           </p>
         </div>

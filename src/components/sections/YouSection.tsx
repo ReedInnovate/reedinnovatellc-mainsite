@@ -39,6 +39,7 @@ const YouSection = () => {
 
   useEffect(() => {
     const stageIndex = stages.findIndex(s => s.title === currentStage);
+    
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -59,9 +60,9 @@ const YouSection = () => {
   return (
     <AnimatedSection id="you" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-left md:text-center mb-10 md:mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <h2 className="section-title text-4xl md:text-5xl">You're Launching Products</h2>
-          <p className="section-description text-left md:text-center text-lg md:text-xl">
+          <p className="section-description mx-auto text-center text-lg md:text-xl">
             And you're looking for a driving force behind getting a product to market and keeping it there.
           </p>
         </div>
@@ -82,16 +83,14 @@ const YouSection = () => {
                   </p>
                   <div className="h-3 md:h-4 bg-gray-100 rounded-full mt-3 overflow-hidden relative">
                     <div 
-                      className="h-full bg-primary transition-all duration-200" 
-                      style={{
-                        width: `${progress}%`
-                      }} 
+                      className="h-full bg-primary transition-all duration-200"
+                      style={{ width: `${progress}%` }}
                     />
                     {/* Custom rocket image that moves with the progress */}
                     <div 
-                      className="absolute top-1/2 transition-all duration-200" 
-                      style={{
-                        left: `${progress}%`,
+                      className="absolute top-1/2 transition-all duration-200"
+                      style={{ 
+                        left: `${progress}%`, 
                         transform: `translateX(-50%) translateY(-50%)`,
                         height: '30px',
                         width: '24px'
@@ -100,7 +99,7 @@ const YouSection = () => {
                       <img 
                         src="/lovable-uploads/ac00de8e-a6b4-4788-aad3-5c221ef66148.png" 
                         alt="Rocket" 
-                        className="h-full w-full object-contain rotate-90" 
+                        className="h-full w-full object-contain rotate-90"
                       />
                     </div>
                   </div>
@@ -112,13 +111,13 @@ const YouSection = () => {
                     <div 
                       key={stage.title} 
                       className={cn(
-                        "flex flex-col items-center transition-all duration-300", 
+                        "flex flex-col items-center transition-all duration-300",
                         stage.title === currentStage ? "scale-110" : "opacity-60"
                       )}
                     >
                       <div 
                         className={cn(
-                          "w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center mb-1", 
+                          "w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center mb-1",
                           stage.title === currentStage ? "bg-primary" : "bg-gray-200"
                         )}
                       >
@@ -128,7 +127,7 @@ const YouSection = () => {
                       </div>
                       <span 
                         className={cn(
-                          "text-sm md:text-base font-medium capitalize", 
+                          "text-sm md:text-base font-medium capitalize",
                           stage.title === currentStage ? "text-primary" : "text-gray-500"
                         )}
                       >
@@ -141,7 +140,7 @@ const YouSection = () => {
             </div>
           </div>
           <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-            <h3 className="text-3xl md:text-4xl font-light">You Need</h3>
+            <h3 className="text-3xl md:text-4xl font-light">What You Need</h3>
             <ul className="space-y-3 md:space-y-4 text-lg md:text-xl">
               {[
                 "Strategic product positioning in competitive markets",
